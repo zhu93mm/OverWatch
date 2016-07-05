@@ -13,7 +13,6 @@
 		A5AC8D111D2631DB007DD75D /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = A5AC8D0F1D2631DB007DD75D /* Main.storyboard */; };
 		A5AC8D131D2631DB007DD75D /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = A5AC8D121D2631DB007DD75D /* Assets.xcassets */; };
 		A5AC8D161D2631DB007DD75D /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = A5AC8D141D2631DB007DD75D /* LaunchScreen.storyboard */; };
-		A5AC8D291D26338E007DD75D /* ViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = A5AC8D271D26338E007DD75D /* ViewController.m */; };
 		A5DE7B361D2BB54500412F0E /* AppDelegate+System.m in Sources */ = {isa = PBXBuildFile; fileRef = A5DE7B291D2BB54500412F0E /* AppDelegate+System.m */; };
 		A5DE7B371D2BB54500412F0E /* NSObject+AFNetWorking.m in Sources */ = {isa = PBXBuildFile; fileRef = A5DE7B2B1D2BB54500412F0E /* NSObject+AFNetWorking.m */; };
 		A5DE7B381D2BB54500412F0E /* NSObject+Parse.m in Sources */ = {isa = PBXBuildFile; fileRef = A5DE7B2D1D2BB54500412F0E /* NSObject+Parse.m */; };
@@ -24,6 +23,7 @@
 		A5DE7B411D2BB9B500412F0E /* MMBaseModel.m in Sources */ = {isa = PBXBuildFile; fileRef = A5DE7B401D2BB9B500412F0E /* MMBaseModel.m */; };
 		A5DE7B441D2BBA0C00412F0E /* MMBaseViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = A5DE7B431D2BBA0C00412F0E /* MMBaseViewController.m */; };
 		A5DE7B471D2BBA6900412F0E /* MMBaseViewModel.m in Sources */ = {isa = PBXBuildFile; fileRef = A5DE7B461D2BBA6900412F0E /* MMBaseViewModel.m */; };
+		A5DE7B4C1D2BD49C00412F0E /* HeroViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = A5DE7B4B1D2BD49C00412F0E /* HeroViewController.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -38,8 +38,6 @@
 		A5AC8D121D2631DB007DD75D /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; name = Assets.xcassets; path = ../Assets.xcassets; sourceTree = "<group>"; };
 		A5AC8D151D2631DB007DD75D /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		A5AC8D171D2631DB007DD75D /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
-		A5AC8D261D26338E007DD75D /* ViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ViewController.h; sourceTree = "<group>"; };
-		A5AC8D271D26338E007DD75D /* ViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ViewController.m; sourceTree = "<group>"; };
 		A5DE7B271D2BB29000412F0E /* PrefixHeader.pch */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = PrefixHeader.pch; sourceTree = "<group>"; };
 		A5DE7B281D2BB54500412F0E /* AppDelegate+System.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "AppDelegate+System.h"; sourceTree = "<group>"; };
 		A5DE7B291D2BB54500412F0E /* AppDelegate+System.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "AppDelegate+System.m"; sourceTree = "<group>"; };
@@ -63,6 +61,8 @@
 		A5DE7B431D2BBA0C00412F0E /* MMBaseViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MMBaseViewController.m; sourceTree = "<group>"; };
 		A5DE7B451D2BBA6900412F0E /* MMBaseViewModel.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MMBaseViewModel.h; sourceTree = "<group>"; };
 		A5DE7B461D2BBA6900412F0E /* MMBaseViewModel.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MMBaseViewModel.m; sourceTree = "<group>"; };
+		A5DE7B4A1D2BD49C00412F0E /* HeroViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = HeroViewController.h; sourceTree = "<group>"; };
+		A5DE7B4B1D2BD49C00412F0E /* HeroViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = HeroViewController.m; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -222,10 +222,9 @@
 		A5AC8D251D26338E007DD75D /* ViewController */ = {
 			isa = PBXGroup;
 			children = (
+				A5DE7B481D2BD3D500412F0E /* 发现 */,
 				A5DE7B421D2BBA0C00412F0E /* MMBaseViewController.h */,
 				A5DE7B431D2BBA0C00412F0E /* MMBaseViewController.m */,
-				A5AC8D261D26338E007DD75D /* ViewController.h */,
-				A5AC8D271D26338E007DD75D /* ViewController.m */,
 			);
 			path = ViewController;
 			sourceTree = "<group>";
@@ -237,6 +236,23 @@
 				A5DE7B461D2BBA6900412F0E /* MMBaseViewModel.m */,
 			);
 			path = ViewModel;
+			sourceTree = "<group>";
+		};
+		A5DE7B481D2BD3D500412F0E /* 发现 */ = {
+			isa = PBXGroup;
+			children = (
+				A5DE7B491D2BD3EE00412F0E /* 英雄 */,
+			);
+			name = "发现";
+			sourceTree = "<group>";
+		};
+		A5DE7B491D2BD3EE00412F0E /* 英雄 */ = {
+			isa = PBXGroup;
+			children = (
+				A5DE7B4A1D2BD49C00412F0E /* HeroViewController.h */,
+				A5DE7B4B1D2BD49C00412F0E /* HeroViewController.m */,
+			);
+			name = "英雄";
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -363,8 +379,8 @@
 				A5DE7B391D2BB54500412F0E /* NSObject+ViewModel.m in Sources */,
 				A5DE7B441D2BBA0C00412F0E /* MMBaseViewController.m in Sources */,
 				A5AC8D0B1D2631DB007DD75D /* AppDelegate.m in Sources */,
+				A5DE7B4C1D2BD49C00412F0E /* HeroViewController.m in Sources */,
 				A5DE7B3C1D2BB54500412F0E /* UIView+HUD.m in Sources */,
-				A5AC8D291D26338E007DD75D /* ViewController.m in Sources */,
 				A5AC8D081D2631DB007DD75D /* main.m in Sources */,
 				A5DE7B3B1D2BB54500412F0E /* UIScrollView+Refresh.m in Sources */,
 				A5DE7B471D2BBA6900412F0E /* MMBaseViewModel.m in Sources */,
