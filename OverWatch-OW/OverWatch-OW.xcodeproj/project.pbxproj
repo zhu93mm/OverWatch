@@ -24,6 +24,10 @@
 		A5DE7B441D2BBA0C00412F0E /* MMBaseViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = A5DE7B431D2BBA0C00412F0E /* MMBaseViewController.m */; };
 		A5DE7B471D2BBA6900412F0E /* MMBaseViewModel.m in Sources */ = {isa = PBXBuildFile; fileRef = A5DE7B461D2BBA6900412F0E /* MMBaseViewModel.m */; };
 		A5DE7B4C1D2BD49C00412F0E /* HeroViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = A5DE7B4B1D2BD49C00412F0E /* HeroViewController.m */; };
+		A5DE7B531D2BD89F00412F0E /* RecommendViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = A5DE7B521D2BD89F00412F0E /* RecommendViewController.m */; };
+		A5DE7B561D2BD92600412F0E /* SquareViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = A5DE7B551D2BD92600412F0E /* SquareViewController.m */; };
+		A5DE7B591D2BD97700412F0E /* MessageViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = A5DE7B581D2BD97700412F0E /* MessageViewController.m */; };
+		A5DE7B5C1D2BDA1E00412F0E /* MyselfViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = A5DE7B5B1D2BDA1E00412F0E /* MyselfViewController.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -63,6 +67,14 @@
 		A5DE7B461D2BBA6900412F0E /* MMBaseViewModel.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MMBaseViewModel.m; sourceTree = "<group>"; };
 		A5DE7B4A1D2BD49C00412F0E /* HeroViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = HeroViewController.h; sourceTree = "<group>"; };
 		A5DE7B4B1D2BD49C00412F0E /* HeroViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = HeroViewController.m; sourceTree = "<group>"; };
+		A5DE7B511D2BD89F00412F0E /* RecommendViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = RecommendViewController.h; sourceTree = "<group>"; };
+		A5DE7B521D2BD89F00412F0E /* RecommendViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = RecommendViewController.m; sourceTree = "<group>"; };
+		A5DE7B541D2BD92600412F0E /* SquareViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SquareViewController.h; sourceTree = "<group>"; };
+		A5DE7B551D2BD92600412F0E /* SquareViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SquareViewController.m; sourceTree = "<group>"; };
+		A5DE7B571D2BD97700412F0E /* MessageViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MessageViewController.h; sourceTree = "<group>"; };
+		A5DE7B581D2BD97700412F0E /* MessageViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MessageViewController.m; sourceTree = "<group>"; };
+		A5DE7B5A1D2BDA1E00412F0E /* MyselfViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MyselfViewController.h; sourceTree = "<group>"; };
+		A5DE7B5B1D2BDA1E00412F0E /* MyselfViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MyselfViewController.m; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -222,7 +234,11 @@
 		A5AC8D251D26338E007DD75D /* ViewController */ = {
 			isa = PBXGroup;
 			children = (
+				A5DE7B4D1D2BD7AC00412F0E /* 推荐 */,
 				A5DE7B481D2BD3D500412F0E /* 发现 */,
+				A5DE7B4E1D2BD7D800412F0E /* 广场 */,
+				A5DE7B4F1D2BD80100412F0E /* 消息 */,
+				A5DE7B501D2BD80800412F0E /* 我 */,
 				A5DE7B421D2BBA0C00412F0E /* MMBaseViewController.h */,
 				A5DE7B431D2BBA0C00412F0E /* MMBaseViewController.m */,
 			);
@@ -253,6 +269,42 @@
 				A5DE7B4B1D2BD49C00412F0E /* HeroViewController.m */,
 			);
 			name = "英雄";
+			sourceTree = "<group>";
+		};
+		A5DE7B4D1D2BD7AC00412F0E /* 推荐 */ = {
+			isa = PBXGroup;
+			children = (
+				A5DE7B511D2BD89F00412F0E /* RecommendViewController.h */,
+				A5DE7B521D2BD89F00412F0E /* RecommendViewController.m */,
+			);
+			name = "推荐";
+			sourceTree = "<group>";
+		};
+		A5DE7B4E1D2BD7D800412F0E /* 广场 */ = {
+			isa = PBXGroup;
+			children = (
+				A5DE7B541D2BD92600412F0E /* SquareViewController.h */,
+				A5DE7B551D2BD92600412F0E /* SquareViewController.m */,
+			);
+			name = "广场";
+			sourceTree = "<group>";
+		};
+		A5DE7B4F1D2BD80100412F0E /* 消息 */ = {
+			isa = PBXGroup;
+			children = (
+				A5DE7B571D2BD97700412F0E /* MessageViewController.h */,
+				A5DE7B581D2BD97700412F0E /* MessageViewController.m */,
+			);
+			name = "消息";
+			sourceTree = "<group>";
+		};
+		A5DE7B501D2BD80800412F0E /* 我 */ = {
+			isa = PBXGroup;
+			children = (
+				A5DE7B5A1D2BDA1E00412F0E /* MyselfViewController.h */,
+				A5DE7B5B1D2BDA1E00412F0E /* MyselfViewController.m */,
+			);
+			name = "我";
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -382,13 +434,17 @@
 				A5DE7B4C1D2BD49C00412F0E /* HeroViewController.m in Sources */,
 				A5DE7B3C1D2BB54500412F0E /* UIView+HUD.m in Sources */,
 				A5AC8D081D2631DB007DD75D /* main.m in Sources */,
+				A5DE7B591D2BD97700412F0E /* MessageViewController.m in Sources */,
 				A5DE7B3B1D2BB54500412F0E /* UIScrollView+Refresh.m in Sources */,
 				A5DE7B471D2BBA6900412F0E /* MMBaseViewModel.m in Sources */,
 				A5DE7B381D2BB54500412F0E /* NSObject+Parse.m in Sources */,
+				A5DE7B5C1D2BDA1E00412F0E /* MyselfViewController.m in Sources */,
+				A5DE7B531D2BD89F00412F0E /* RecommendViewController.m in Sources */,
 				A5DE7B3A1D2BB54500412F0E /* NSString+MM.m in Sources */,
 				A5DE7B361D2BB54500412F0E /* AppDelegate+System.m in Sources */,
 				A5DE7B411D2BB9B500412F0E /* MMBaseModel.m in Sources */,
 				A5DE7B371D2BB54500412F0E /* NSObject+AFNetWorking.m in Sources */,
+				A5DE7B561D2BD92600412F0E /* SquareViewController.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

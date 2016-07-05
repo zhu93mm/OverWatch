@@ -7,7 +7,11 @@
 //
 
 #import "AppDelegate.h"
+#import "RecommendViewController.h"
 #import "HeroViewController.h"
+#import "SquareViewController.h"
+#import "MessageViewController.h"
+#import "MyselfViewController.h"
 
 @interface AppDelegate ()
 
@@ -30,8 +34,13 @@
 - (UITabBarController *)tabBarC {
     if(_tabBarC == nil) {
         _tabBarC = [[UITabBarController alloc] init];
+        RecommendViewController *recommendVC = [RecommendViewController new];
         HeroViewController *heroVC = [HeroViewController new];
+        SquareViewController *squareVC = [SquareViewController new];
+        MessageViewController 
+        
         UINavigationController *heroNavi = [[UINavigationController alloc] initWithRootViewController:heroVC];
+        
         _tabBarC.viewControllers = @[heroNavi];
     }
     return _tabBarC;
