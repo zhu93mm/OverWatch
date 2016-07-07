@@ -14,9 +14,17 @@
 
 @implementation RecommendViewController
 
+- (instancetype)init{
+    if (self = [super init]) {
+        self.title = @"推荐";
+    }
+    return self;
+}
+
 - (void)viewDidLoad {
     [super viewDidLoad];
-    // Do any additional setup after loading the view.
+    
+    self.navigationItem.title = @"首页-推荐";
 }
 
 - (void)didReceiveMemoryWarning {

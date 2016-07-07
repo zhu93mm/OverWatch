@@ -37,11 +37,16 @@
         RecommendViewController *recommendVC = [RecommendViewController new];
         HeroViewController *heroVC = [HeroViewController new];
         SquareViewController *squareVC = [SquareViewController new];
-        MessageViewController 
+        MessageViewController *messageVC = [MessageViewController new];
+        MyselfViewController *myselfVC = [MyselfViewController new];
         
+        UINavigationController *recommendNavi = [[UINavigationController alloc] initWithRootViewController:recommendVC];
         UINavigationController *heroNavi = [[UINavigationController alloc] initWithRootViewController:heroVC];
+        UINavigationController *squareNavi = [[UINavigationController alloc] initWithRootViewController:squareVC];
+        UINavigationController *messageNavi = [[UINavigationController alloc] initWithRootViewController:messageVC];
+        UINavigationController *myselfNavi = [[UINavigationController alloc] initWithRootViewController:myselfVC];
         
-        _tabBarC.viewControllers = @[heroNavi];
+        _tabBarC.viewControllers = @[recommendNavi, heroNavi, squareNavi, messageNavi, myselfNavi];
     }
     return _tabBarC;
 }

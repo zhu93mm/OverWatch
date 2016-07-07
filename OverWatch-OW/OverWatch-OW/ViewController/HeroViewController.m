@@ -7,16 +7,50 @@
 //
 
 #import "HeroViewController.h"
+#import "HerosViewCell.h"
 
-@interface HeroViewController ()
+@interface HeroViewController ()<UICollectionViewDelegate, UICollectionViewDataSource>
+@property (nonatomic, strong) UICollectionView *heroCollection;
+@property (nonatomic, strong) UICollectionViewFlowLayout *flowLayout;
 
 @end
 
 @implementation HeroViewController
+#pragma mark - Delegate
+- (NSInteger)collectionView:(UICollectionView *)collectionView numberOfItemsInSection:(NSInteger)section{
+    return 21;
+}
+
+- (UICollectionViewCell *)collectionView:(UICollectionView *)collectionView cellForItemAtIndexPath:(NSIndexPath *)indexPath{
+    HerosViewCell *cell = [collectionView dequeueReusableCellWithReuseIdentifier:@"Cell" forIndexPath:indexPath];
+    cell.backgroundColor = [UIColor redColor];
+    return cell;
+}
+
+//给cell添加动画
+-(void)collectionView:(UICollectionView *)collectionView willDisplayCell:(UICollectionViewCell *)cell forItemAtIndexPath:(NSIndexPath *)indexPath{
+    //设置Cell的动画效果为3D效果
+    //设置x和y的初始值为0.1；
+    cell.layer.transform = CATransform3DMakeScale(0.1, 0.1, 1);
+    //x和y的最终值为1
+    [UIView animateWithDuration:1 animations:^{
+        cell.layer.transform = CATransform3DMakeScale(1, 1, 1);
+    }];
+}
+
+#pragma mark - LifeCycle 生命周期
+- (instancetype)init{
+    if (self = [super init]) {
+        self.title = @"英雄";
+    }
+    return self;
+}
 
 - (void)viewDidLoad {
     [super viewDidLoad];
-    // Do any additional setup after loading the view.
+    
+    self.navigationItem.title = @"世界需要英雄";
+    [self heroCollection];
 }
 
 - (void)didReceiveMemoryWarning {
@@ -24,14 +58,33 @@
     // Dispose of any resources that can be recreated.
 }
 
-/*
-#pragma mark - Navigation
-
-// In a storyboard-based application, you will often want to do a little preparation before navigation
-- (void)prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender {
-    // Get the new view controller using [segue destinationViewController].
-    // Pass the selected object to the new view controller.
+#pragma mark - LazyLoad 懒加载
+- (UICollectionView *)heroCollection {
+	if(_heroCollection == nil) {
+		_heroCollection = [[UICollectionView alloc] initWithFrame:CGRectZero collectionViewLayout:self.flowLayout];
+        _heroCollection.backgroundColor = kBGColor;
+        [self.view addSubview:_heroCollection];
+        [_heroCollection mas_makeConstraints:^(MASConstraintMaker *make) {
+            make.edges.equalTo(0);
+        }];
+        _heroCollection.delegate = self;
+        _heroCollection.dataSource = self;
+        [_heroCollection registerClass:[HerosViewCell class] forCellWithReuseIdentifier:@"Cell"];
+	}
+	return _heroCollection;
 }
-*/
+
+- (UICollectionViewFlowLayout *)flowLayout {
+	if(_flowLayout == nil) {
+		_flowLayout = [[UICollectionViewFlowLayout alloc] init];
+        _flowLayout.sectionInset = UIEdgeInsetsMake(12, 12, 12, 12);
+        _flowLayout.minimumLineSpacing = 12.0;
+        _flowLayout.minimumInteritemSpacing = 12.0;
+        CGFloat width = (kScreenW - 12 * 4)/3;
+        CGFloat height = width;
+        _flowLayout.itemSize = CGSizeMake(width, height);
+	}
+	return _flowLayout;
+}
 
 @end

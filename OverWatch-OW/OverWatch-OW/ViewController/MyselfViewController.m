@@ -14,9 +14,17 @@
 
 @implementation MyselfViewController
 
+- (instancetype)init{
+    if (self = [super init]) {
+        self.title = @"我";
+    }
+    return self;
+}
+
 - (void)viewDidLoad {
     [super viewDidLoad];
-    // Do any additional setup after loading the view.
+    
+    self.navigationItem.title = @"I am hero";
 }
 
 - (void)didReceiveMemoryWarning {

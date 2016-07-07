@@ -14,9 +14,17 @@
 
 @implementation SquareViewController
 
+- (instancetype)init{
+    if (self = [super init]) {
+        self.title = @"广场";
+    }
+    return self;
+}
+
 - (void)viewDidLoad {
     [super viewDidLoad];
-    // Do any additional setup after loading the view.
+    
+    self.navigationItem.title = @"在这里停顿";
 }
 
 - (void)didReceiveMemoryWarning {

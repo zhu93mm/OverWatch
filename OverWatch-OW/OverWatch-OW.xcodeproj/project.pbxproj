@@ -8,6 +8,7 @@
 
 /* Begin PBXBuildFile section */
 		83414F4FE9195668F7796F98 /* libPods-OverWatch-OW.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 3F0634487CDDA8DF393D0E86 /* libPods-OverWatch-OW.a */; };
+		A50EAFDF1D2CEDB800139C83 /* HerosViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = A50EAFDE1D2CEDB800139C83 /* HerosViewCell.m */; };
 		A5AC8D081D2631DB007DD75D /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = A5AC8D071D2631DB007DD75D /* main.m */; };
 		A5AC8D0B1D2631DB007DD75D /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = A5AC8D0A1D2631DB007DD75D /* AppDelegate.m */; };
 		A5AC8D111D2631DB007DD75D /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = A5AC8D0F1D2631DB007DD75D /* Main.storyboard */; };
@@ -34,6 +35,8 @@
 		3F0634487CDDA8DF393D0E86 /* libPods-OverWatch-OW.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = "libPods-OverWatch-OW.a"; sourceTree = BUILT_PRODUCTS_DIR; };
 		7C560A03A19FADA743A6CB16 /* Pods-OverWatch-OW.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-OverWatch-OW.release.xcconfig"; path = "Pods/Target Support Files/Pods-OverWatch-OW/Pods-OverWatch-OW.release.xcconfig"; sourceTree = "<group>"; };
 		98044453EA1A8944D98D337A /* Pods-OverWatch-OW.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-OverWatch-OW.debug.xcconfig"; path = "Pods/Target Support Files/Pods-OverWatch-OW/Pods-OverWatch-OW.debug.xcconfig"; sourceTree = "<group>"; };
+		A50EAFDD1D2CEDB800139C83 /* HerosViewCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = HerosViewCell.h; sourceTree = "<group>"; };
+		A50EAFDE1D2CEDB800139C83 /* HerosViewCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = HerosViewCell.m; sourceTree = "<group>"; };
 		A5AC8D031D2631DB007DD75D /* OverWatch-OW.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "OverWatch-OW.app"; sourceTree = BUILT_PRODUCTS_DIR; };
 		A5AC8D071D2631DB007DD75D /* main.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = main.m; sourceTree = "<group>"; };
 		A5AC8D091D2631DB007DD75D /* AppDelegate.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = AppDelegate.h; sourceTree = "<group>"; };
@@ -267,6 +270,8 @@
 			children = (
 				A5DE7B4A1D2BD49C00412F0E /* HeroViewController.h */,
 				A5DE7B4B1D2BD49C00412F0E /* HeroViewController.m */,
+				A50EAFDD1D2CEDB800139C83 /* HerosViewCell.h */,
+				A50EAFDE1D2CEDB800139C83 /* HerosViewCell.m */,
 			);
 			name = "英雄";
 			sourceTree = "<group>";
@@ -341,6 +346,7 @@
 				TargetAttributes = {
 					A5AC8D021D2631DB007DD75D = {
 						CreatedOnToolsVersion = 7.2.1;
+						DevelopmentTeam = FQ9KGN9333;
 					};
 				};
 			};
@@ -434,6 +440,7 @@
 				A5DE7B4C1D2BD49C00412F0E /* HeroViewController.m in Sources */,
 				A5DE7B3C1D2BB54500412F0E /* UIView+HUD.m in Sources */,
 				A5AC8D081D2631DB007DD75D /* main.m in Sources */,
+				A50EAFDF1D2CEDB800139C83 /* HerosViewCell.m in Sources */,
 				A5DE7B591D2BD97700412F0E /* MessageViewController.m in Sources */,
 				A5DE7B3B1D2BB54500412F0E /* UIScrollView+Refresh.m in Sources */,
 				A5DE7B471D2BBA6900412F0E /* MMBaseViewModel.m in Sources */,
@@ -557,6 +564,7 @@
 			baseConfigurationReference = 98044453EA1A8944D98D337A /* Pods-OverWatch-OW.debug.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				CODE_SIGN_IDENTITY = "iPhone Developer";
 				GCC_PREFIX_HEADER = "$(PRODUCT_NAME)/PrefixHeader.pch";
 				INFOPLIST_FILE = "OverWatch-OW/Info.plist";
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
@@ -570,6 +578,7 @@
 			baseConfigurationReference = 7C560A03A19FADA743A6CB16 /* Pods-OverWatch-OW.release.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				CODE_SIGN_IDENTITY = "iPhone Developer";
 				GCC_PREFIX_HEADER = "$(PRODUCT_NAME)/PrefixHeader.pch";
 				INFOPLIST_FILE = "OverWatch-OW/Info.plist";
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";

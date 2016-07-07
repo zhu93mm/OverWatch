@@ -14,9 +14,17 @@
 
 @implementation MessageViewController
 
+- (instancetype)init{
+    if (self = [super init]) {
+        self.title = @"消息";
+    }
+    return self;
+}
+
 - (void)viewDidLoad {
     [super viewDidLoad];
-    // Do any additional setup after loading the view.
+    
+    self.navigationItem.title = @"有人要撩你";
 }
 
 - (void)didReceiveMemoryWarning {
