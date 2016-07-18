@@ -22,6 +22,12 @@ static NSInteger const WMBadgeViewTagOffset = 1212;
 @implementation WMMenuView
 
 #pragma mark - Setter
+- (void)setLayoutMode:(WMMenuViewLayoutMode)layoutMode {
+    _layoutMode = layoutMode;
+    if (!self.superview) { return; }
+    [self reload];
+}
+
 - (void)setFrame:(CGRect)frame {
     [super setFrame:frame];
     
@@ -30,7 +36,7 @@ static NSInteger const WMBadgeViewTagOffset = 1212;
     CGFloat leftMargin = self.contentMargin + self.leftView.frame.size.width;
     CGFloat rightMargin = self.contentMargin + self.rightView.frame.size.width;
     CGFloat contentWidth = self.scrollView.frame.size.width + leftMargin + rightMargin;
-    CGFloat startX = self.leftView.frame.origin.x + self.scrollView.frame.origin.x - self.contentMargin;
+    CGFloat startX = self.leftView ? self.leftView.frame.origin.x : self.scrollView.frame.origin.x - self.contentMargin;
     
     // Make the contentView center, because system will change menuView's frame if it's a titleView.
     if (startX + contentWidth / 2 != self.bounds.size.width / 2) {
@@ -175,7 +181,6 @@ static NSInteger const WMBadgeViewTagOffset = 1212;
     WMMenuItem *currentItem = (WMMenuItem *)[self viewWithTag:tag];
     WMMenuItem *nextItem = (WMMenuItem *)[self viewWithTag:tag+1];
     if (rate == 0.0) {
-        rate = 1.0;
         [self.selItem deselectedItemWithoutAnimation];
         self.selItem = currentItem;
         [self.selItem selectedItemWithoutAnimation];
@@ -218,6 +223,7 @@ static NSInteger const WMBadgeViewTagOffset = 1212;
     }
     
     [self addBadgeViewAtIndex:index];
+    [self resetBadgeFrame:index];
 }
 
 #pragma mark - Data source
@@ -263,16 +269,9 @@ static NSInteger const WMBadgeViewTagOffset = 1212;
     [self.frames removeAllObjects];
     [self calculateItemFrames];
     for (NSInteger i = index; i < self.titlesCount; i++) {
-        WMMenuItem *item = (WMMenuItem *)[self viewWithTag:(WMMenuItemTagOffset + i)];
-        CGRect frame = [self.frames[i] CGRectValue];
-        item.frame = frame;
+        [self resetItemFrame:i];
         
-        UIView *badgeView = [self.scrollView viewWithTag:(WMBadgeViewTagOffset + i)];
-        if (badgeView) {
-            CGRect badgeFrame = [self badgeViewAtIndex:i].frame;
-            badgeFrame.origin.x += frame.origin.x;
-            badgeView.frame = badgeFrame;
-        }
+        [self resetBadgeFrame:i];
     }
     if (!self.progressView.superview) { return; }
     CGRect frame = self.progressView.frame;
@@ -285,6 +284,22 @@ static NSInteger const WMBadgeViewTagOffset = 1212;
     self.progressView.frame = frame;
     self.progressView.itemFrames = [self convertProgressWidthsToFrames];
     [self.progressView setNeedsDisplay];
+}
+
+- (void)resetItemFrame:(NSInteger)index {
+    WMMenuItem *item = (WMMenuItem *)[self viewWithTag:(WMMenuItemTagOffset + index)];
+    CGRect frame = [self.frames[index] CGRectValue];
+    item.frame = frame;
+}
+
+- (void)resetBadgeFrame:(NSInteger)index {
+    CGRect frame = [self.frames[index] CGRectValue];
+    UIView *badgeView = [self.scrollView viewWithTag:(WMBadgeViewTagOffset + index)];
+    if (badgeView) {
+        CGRect badgeFrame = [self badgeViewAtIndex:index].frame;
+        badgeFrame.origin.x += frame.origin.x;
+        badgeView.frame = badgeFrame;
+    }
 }
 
 - (NSArray *)convertProgressWidthsToFrames {
@@ -431,12 +446,30 @@ static NSInteger const WMBadgeViewTagOffset = 1212;
     }
     // 如果总宽度小于屏幕宽,重新计算frame,为item间添加间距
     if (contentWidth < self.scrollView.frame.size.width) {
-        // 计算间距
         CGFloat distance = self.scrollView.frame.size.width - contentWidth;
-        CGFloat gap = distance / (self.titlesCount + 1);
+        CGFloat (^shiftDis)(int);
+        switch (self.layoutMode) {
+            case WMMenuViewLayoutModeScatter: {
+                CGFloat gap = distance / (self.titlesCount + 1);
+                shiftDis = ^CGFloat(int index) { return gap * (index + 1); };
+                break;
+            }
+            case WMMenuViewLayoutModeLeft: {
+                shiftDis = ^CGFloat(int index) { return 0.0; };
+                break;
+            }
+            case WMMenuViewLayoutModeRight: {
+                shiftDis = ^CGFloat(int index) { return distance; };
+                break;
+            }
+            case WMMenuViewLayoutModeCenter: {
+                shiftDis = ^CGFloat(int index) { return distance / 2; };
+                break;
+            }
+        }
         for (int i = 0; i < self.frames.count; i++) {
             CGRect frame = [self.frames[i] CGRectValue];
-            frame.origin.x += gap * (i+1);
+            frame.origin.x += shiftDis(i);
             self.frames[i] = [NSValue valueWithCGRect:frame];
         }
         contentWidth = self.scrollView.frame.size.width;

@@ -14,7 +14,7 @@
             buildForArchiving = "YES">
             <BuildableReference
                BuildableIdentifier = 'primary'
-               BlueprintIdentifier = 'C4390975A6951F61F8AFBB674D635BED'
+               BlueprintIdentifier = '01C302919C3A0AD6E4438A1DBC495219'
                BlueprintName = 'Pods-OverWatch-OW'
                ReferencedContainer = 'container:Pods.xcodeproj'
                BuildableName = 'libPods-OverWatch-OW.a'>

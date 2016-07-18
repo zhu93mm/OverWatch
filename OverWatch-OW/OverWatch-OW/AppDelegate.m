@@ -12,6 +12,7 @@
 #import "SquareViewController.h"
 #import "MessageViewController.h"
 #import "MyselfViewController.h"
+//#import "MMNetManager.h"
 
 @interface AppDelegate ()
 
@@ -27,6 +28,11 @@
     _window.backgroundColor = [UIColor whiteColor];
     [_window makeKeyAndVisible];
     _window.rootViewController = self.tabBarC;
+    
+    //用于测试请求数据是否成功
+//    MMNetManager *netManager = [MMNetManager getRecommend:nil start:1 completionHandler:^(MMRecommendModel *model, NSError *error) {
+//        NSLog(@"");
+//    }];
     
     return YES;
 }
@@ -47,6 +53,14 @@
         UINavigationController *myselfNavi = [[UINavigationController alloc] initWithRootViewController:myselfVC];
         
         _tabBarC.viewControllers = @[recommendNavi, heroNavi, squareNavi, messageNavi, myselfNavi];
+        
+        //统一设置导航栏格式
+        [UINavigationBar appearance].barStyle = UIBarStyleBlack;
+        [UINavigationBar appearance].backgroundColor = kRGBColor(12, 12, 12, 0.7);
+        //统一设置标签栏
+        [UITabBar appearance].barTintColor = kRGBColor(12, 12, 12, 0.7);
+        [[UITabBarItem appearance] setTitleTextAttributes:[NSDictionary dictionaryWithObjectsAndKeys:[UIFont fontWithName:@"MarkerFelt-Thin" size:12.0], NSFontAttributeName, nil] forState:UIControlStateNormal];
+        [[UITabBarItem appearance] setTitleTextAttributes:@{NSForegroundColorAttributeName:[UIColor whiteColor]} forState:UIControlStateSelected];
     }
     return _tabBarC;
 }

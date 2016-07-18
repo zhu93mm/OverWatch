@@ -17,6 +17,9 @@
 - (instancetype)init{
     if (self = [super init]) {
         self.title = @"广场";
+        self.navigationItem.title = @"在这里停顿";
+        self.tabBarItem.image = [UIImage imageNamed:@"首页-广场"];
+        self.tabBarItem.selectedImage = [UIImage imageNamed:@"首页-广场点击"];
     }
     return self;
 }
@@ -24,7 +27,7 @@
 - (void)viewDidLoad {
     [super viewDidLoad];
     
-    self.navigationItem.title = @"在这里停顿";
+    
 }
 
 - (void)didReceiveMemoryWarning {

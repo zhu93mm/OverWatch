@@ -10,10 +10,11 @@
 #import "WMPageConst.h"
 
 static NSInteger const kWMUndefinedIndex = -1;
+static NSInteger const kWMControllerCountUndefined = -1;
 @interface WMPageController () {
     CGFloat _viewHeight, _viewWidth, _viewX, _viewY, _targetX, _superviewHeight;
     BOOL    _hasInited, _shouldNotScroll;
-    NSInteger _initializedIndex;
+    NSInteger _initializedIndex, _controllerConut;
 }
 @property (nonatomic, strong, readwrite) UIViewController *currentViewController;
 // 用于记录子控制器view的frame，用于 scrollView 上的展示的位置
@@ -87,6 +88,13 @@ static NSInteger const kWMUndefinedIndex = -1;
     if (_hasInited) {
         _hasInited = NO;
         [self viewDidLayoutSubviews];
+    }
+}
+
+- (void)setMenuViewLayoutMode:(WMMenuViewLayoutMode)menuViewLayoutMode {
+    _menuViewLayoutMode = menuViewLayoutMode;
+    if (self.menuView.superview) {
+        [self resetMenuView];
     }
 }
 
@@ -209,10 +217,14 @@ static NSInteger const kWMUndefinedIndex = -1;
 
 #pragma mark - Data source
 - (NSInteger)childControllersCount {
-    if ([self.dataSource respondsToSelector:@selector(numbersOfChildControllersInPageController:)]) {
-        return [self.dataSource numbersOfChildControllersInPageController:self];
+    if (_controllerConut == kWMControllerCountUndefined) {
+        if ([self.dataSource respondsToSelector:@selector(numbersOfChildControllersInPageController:)]) {
+            _controllerConut = [self.dataSource numbersOfChildControllersInPageController:self];
+        } else {
+            _controllerConut = self.viewControllerClasses.count;
+        }
     }
-    return self.viewControllerClasses.count;
+    return _controllerConut;
 }
 
 - (UIViewController *)initializeViewControllerAtIndex:(NSInteger)index {
@@ -241,6 +253,7 @@ static NSInteger const kWMUndefinedIndex = -1;
 }
 
 - (void)clearDatas {
+    _controllerConut = kWMControllerCountUndefined;
     _hasInited = NO;
     _selectIndex = self.selectIndex < self.childControllersCount ? self.selectIndex : (int)self.childControllersCount - 1;
     NSArray *displayingViewControllers = self.displayVC.allValues;
@@ -293,6 +306,7 @@ static NSInteger const kWMUndefinedIndex = -1;
     
     _memCache = [[NSCache alloc] init];
     _initializedIndex = kWMUndefinedIndex;
+    _controllerConut  = kWMControllerCountUndefined;
     
     self.automaticallyAdjustsScrollViewInsets = NO;
     self.preloadPolicy = WMPageControllerPreloadPolicyNever;
@@ -392,6 +406,7 @@ static NSInteger const kWMUndefinedIndex = -1;
     menuView.delegate = self;
     menuView.dataSource = self;
     menuView.style = self.menuViewStyle;
+    menuView.layoutMode = self.menuViewLayoutMode;
     menuView.progressHeight = self.progressHeight;
     menuView.contentMargin = self.menuViewContentMargin;
     menuView.progressViewBottomSpace = self.progressViewBottomSpace;

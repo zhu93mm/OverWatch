@@ -10,4 +10,11 @@
 
 @interface HerosViewCell : UICollectionViewCell
 
+/** 标签条 */
+@property (nonatomic, strong) UIView *view;
+/** 英雄头像图片 */
+@property (nonatomic, strong) UIImageView *iconIV;
+/** 英雄名标签 */
+@property (nonatomic, strong) UILabel *heroNameLb;
+
 @end

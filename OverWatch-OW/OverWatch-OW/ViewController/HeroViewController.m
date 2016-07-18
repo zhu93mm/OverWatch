@@ -23,7 +23,11 @@
 
 - (UICollectionViewCell *)collectionView:(UICollectionView *)collectionView cellForItemAtIndexPath:(NSIndexPath *)indexPath{
     HerosViewCell *cell = [collectionView dequeueReusableCellWithReuseIdentifier:@"Cell" forIndexPath:indexPath];
-    cell.backgroundColor = [UIColor redColor];
+    NSArray *iconHeroArr = kIconHeroArray;
+    NSArray *nameHeroArr = kNameHeroArray;
+    NSString *iconStr = [NSString stringWithFormat:kIconHeroPath, iconHeroArr[indexPath.row]];
+    [cell.iconIV setImageWithURL:[NSURL URLWithString:iconStr] placeholderImage:[UIImage imageNamed:@"iconIV_BG"]];
+    cell.heroNameLb.text = nameHeroArr[indexPath.row];
     return cell;
 }
 
@@ -42,6 +46,9 @@
 - (instancetype)init{
     if (self = [super init]) {
         self.title = @"英雄";
+        self.navigationItem.title = @"世界需要英雄";
+        self.tabBarItem.image = [UIImage imageNamed:@"首页-发现"];
+        self.tabBarItem.selectedImage = [UIImage imageNamed:@"首页-发现点击"];
     }
     return self;
 }
@@ -49,7 +56,6 @@
 - (void)viewDidLoad {
     [super viewDidLoad];
     
-    self.navigationItem.title = @"世界需要英雄";
     [self heroCollection];
 }
 

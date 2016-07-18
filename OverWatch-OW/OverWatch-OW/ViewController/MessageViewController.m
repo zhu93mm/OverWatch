@@ -17,6 +17,9 @@
 - (instancetype)init{
     if (self = [super init]) {
         self.title = @"消息";
+        self.navigationItem.title = @"有人要撩你";
+        self.tabBarItem.image = [UIImage imageNamed:@"首页-消息"];
+        self.tabBarItem.selectedImage = [UIImage imageNamed:@"首页-消息点击"];
     }
     return self;
 }
@@ -24,7 +27,6 @@
 - (void)viewDidLoad {
     [super viewDidLoad];
     
-    self.navigationItem.title = @"有人要撩你";
 }
 
 - (void)didReceiveMemoryWarning {
