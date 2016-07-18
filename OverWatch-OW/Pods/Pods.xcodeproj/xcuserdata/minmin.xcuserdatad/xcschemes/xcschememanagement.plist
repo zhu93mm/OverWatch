@@ -74,6 +74,11 @@
 			<key>isShown</key>
 			<false/>
 		</dict>
+		<key>UITableView+FDTemplateLayoutCell.xcscheme</key>
+		<dict>
+			<key>isShown</key>
+			<false/>
+		</dict>
 		<key>WMPageController.xcscheme</key>
 		<dict>
 			<key>isShown</key>
@@ -92,11 +97,6 @@
 	</dict>
 	<key>SuppressBuildableAutocreation</key>
 	<dict>
-		<key>01C302919C3A0AD6E4438A1DBC495219</key>
-		<dict>
-			<key>primary</key>
-			<true/>
-		</dict>
 		<key>12E2BC28C62976C425F4B71C2723F0B1</key>
 		<dict>
 			<key>primary</key>
@@ -107,7 +107,12 @@
 			<key>primary</key>
 			<true/>
 		</dict>
-		<key>4D67A0052201C1A288092AD96301CF2E</key>
+		<key>19ABE39D54A45628E81C9D8F6A0298A4</key>
+		<dict>
+			<key>primary</key>
+			<true/>
+		</dict>
+		<key>28F20D7A7C7A55CBB866BFFE9151A973</key>
 		<dict>
 			<key>primary</key>
 			<true/>
@@ -117,7 +122,17 @@
 			<key>primary</key>
 			<true/>
 		</dict>
+		<key>651D3A26707B7A7D73F91D40C85382FF</key>
+		<dict>
+			<key>primary</key>
+			<true/>
+		</dict>
 		<key>70BC44266C6FFE30D2C57129458E070B</key>
+		<dict>
+			<key>primary</key>
+			<true/>
+		</dict>
+		<key>830E4582211484335FA0DFCA2C2ABC1F</key>
 		<dict>
 			<key>primary</key>
 			<true/>
@@ -128,6 +143,11 @@
 			<true/>
 		</dict>
 		<key>9494390523250106847516AB47E5F9FF</key>
+		<dict>
+			<key>primary</key>
+			<true/>
+		</dict>
+		<key>9A9FD9A1EB226C40899877E321111A64</key>
 		<dict>
 			<key>primary</key>
 			<true/>
@@ -147,12 +167,12 @@
 			<key>primary</key>
 			<true/>
 		</dict>
-		<key>B8C76CB737FD85D9B59A8ADD8786B1B1</key>
+		<key>D058B89EB3B3DF45457A2DCD3971AFFE</key>
 		<dict>
 			<key>primary</key>
 			<true/>
 		</dict>
-		<key>C195BE04F78BBC5CE4DCF62D889E053D</key>
+		<key>D68E07C063982CED3666FB2216B432A4</key>
 		<dict>
 			<key>primary</key>
 			<true/>
@@ -163,16 +183,6 @@
 			<true/>
 		</dict>
 		<key>F6369DCF9EF8959EE460063E1C27CF48</key>
-		<dict>
-			<key>primary</key>
-			<true/>
-		</dict>
-		<key>F86EC627C97D57A45B8BC3D083ABA286</key>
-		<dict>
-			<key>primary</key>
-			<true/>
-		</dict>
-		<key>FE2F1D7B9D9FCEA148517E4657B243F4</key>
 		<dict>
 			<key>primary</key>
 			<true/>

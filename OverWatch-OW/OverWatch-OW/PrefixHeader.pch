@@ -26,6 +26,8 @@
 #import "NSObject+Parse.h"
 #import "NSString+MM.h"
 
+#import <UITableView+FDTemplateLayoutCell.h>  //自动设定tableViewCell高度
+
 
 
 #import <MJRefresh.h>    //优秀的滚动视图头部和脚步刷新效果

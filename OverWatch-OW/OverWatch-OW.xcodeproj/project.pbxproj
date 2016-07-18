@@ -8,8 +8,10 @@
 
 /* Begin PBXBuildFile section */
 		83414F4FE9195668F7796F98 /* libPods-OverWatch-OW.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 3F0634487CDDA8DF393D0E86 /* libPods-OverWatch-OW.a */; };
-		A50B8A801D3A10330070172E /* MMRecommendCell.m in Sources */ = {isa = PBXBuildFile; fileRef = A50B8A7F1D3A10330070172E /* MMRecommendCell.m */; };
 		A50EAFDF1D2CEDB800139C83 /* HerosViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = A50EAFDE1D2CEDB800139C83 /* HerosViewCell.m */; };
+		A59D704B1D3CA9FD0085E3B4 /* MMRecommendCell.m in Sources */ = {isa = PBXBuildFile; fileRef = A59D704A1D3CA9FD0085E3B4 /* MMRecommendCell.m */; };
+		A59D704E1D3CAA4E0085E3B4 /* MMPicRecommendCell.m in Sources */ = {isa = PBXBuildFile; fileRef = A59D704D1D3CAA4E0085E3B4 /* MMPicRecommendCell.m */; };
+		A59D70511D3CAA6B0085E3B4 /* MMVideoRecommendCell.m in Sources */ = {isa = PBXBuildFile; fileRef = A59D70501D3CAA6B0085E3B4 /* MMVideoRecommendCell.m */; };
 		A5AC8D081D2631DB007DD75D /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = A5AC8D071D2631DB007DD75D /* main.m */; };
 		A5AC8D0B1D2631DB007DD75D /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = A5AC8D0A1D2631DB007DD75D /* AppDelegate.m */; };
 		A5AC8D111D2631DB007DD75D /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = A5AC8D0F1D2631DB007DD75D /* Main.storyboard */; };
@@ -39,10 +41,14 @@
 		3F0634487CDDA8DF393D0E86 /* libPods-OverWatch-OW.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = "libPods-OverWatch-OW.a"; sourceTree = BUILT_PRODUCTS_DIR; };
 		7C560A03A19FADA743A6CB16 /* Pods-OverWatch-OW.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-OverWatch-OW.release.xcconfig"; path = "Pods/Target Support Files/Pods-OverWatch-OW/Pods-OverWatch-OW.release.xcconfig"; sourceTree = "<group>"; };
 		98044453EA1A8944D98D337A /* Pods-OverWatch-OW.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-OverWatch-OW.debug.xcconfig"; path = "Pods/Target Support Files/Pods-OverWatch-OW/Pods-OverWatch-OW.debug.xcconfig"; sourceTree = "<group>"; };
-		A50B8A7E1D3A10330070172E /* MMRecommendCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MMRecommendCell.h; sourceTree = "<group>"; };
-		A50B8A7F1D3A10330070172E /* MMRecommendCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MMRecommendCell.m; sourceTree = "<group>"; };
 		A50EAFDD1D2CEDB800139C83 /* HerosViewCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = HerosViewCell.h; sourceTree = "<group>"; };
 		A50EAFDE1D2CEDB800139C83 /* HerosViewCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = HerosViewCell.m; sourceTree = "<group>"; };
+		A59D70491D3CA9FD0085E3B4 /* MMRecommendCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MMRecommendCell.h; sourceTree = "<group>"; };
+		A59D704A1D3CA9FD0085E3B4 /* MMRecommendCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MMRecommendCell.m; sourceTree = "<group>"; };
+		A59D704C1D3CAA4E0085E3B4 /* MMPicRecommendCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MMPicRecommendCell.h; sourceTree = "<group>"; };
+		A59D704D1D3CAA4E0085E3B4 /* MMPicRecommendCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MMPicRecommendCell.m; sourceTree = "<group>"; };
+		A59D704F1D3CAA6B0085E3B4 /* MMVideoRecommendCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MMVideoRecommendCell.h; sourceTree = "<group>"; };
+		A59D70501D3CAA6B0085E3B4 /* MMVideoRecommendCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MMVideoRecommendCell.m; sourceTree = "<group>"; };
 		A5AC8D031D2631DB007DD75D /* OverWatch-OW.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "OverWatch-OW.app"; sourceTree = BUILT_PRODUCTS_DIR; };
 		A5AC8D071D2631DB007DD75D /* main.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = main.m; sourceTree = "<group>"; };
 		A5AC8D091D2631DB007DD75D /* AppDelegate.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = AppDelegate.h; sourceTree = "<group>"; };
@@ -119,6 +125,19 @@
 				7C560A03A19FADA743A6CB16 /* Pods-OverWatch-OW.release.xcconfig */,
 			);
 			name = Pods;
+			sourceTree = "<group>";
+		};
+		A59D70481D3CA9FD0085E3B4 /* 推荐 */ = {
+			isa = PBXGroup;
+			children = (
+				A59D70491D3CA9FD0085E3B4 /* MMRecommendCell.h */,
+				A59D704A1D3CA9FD0085E3B4 /* MMRecommendCell.m */,
+				A59D704C1D3CAA4E0085E3B4 /* MMPicRecommendCell.h */,
+				A59D704D1D3CAA4E0085E3B4 /* MMPicRecommendCell.m */,
+				A59D704F1D3CAA6B0085E3B4 /* MMVideoRecommendCell.h */,
+				A59D70501D3CAA6B0085E3B4 /* MMVideoRecommendCell.m */,
+			);
+			path = "推荐";
 			sourceTree = "<group>";
 		};
 		A5AC8CFA1D2631DB007DD75D = {
@@ -245,8 +264,7 @@
 		A5AC8D241D26338E007DD75D /* View */ = {
 			isa = PBXGroup;
 			children = (
-				A50B8A7E1D3A10330070172E /* MMRecommendCell.h */,
-				A50B8A7F1D3A10330070172E /* MMRecommendCell.m */,
+				A59D70481D3CA9FD0085E3B4 /* 推荐 */,
 			);
 			path = View;
 			sourceTree = "<group>";
@@ -472,10 +490,12 @@
 			buildActionMask = 2147483647;
 			files = (
 				A5DE7B391D2BB54500412F0E /* NSObject+ViewModel.m in Sources */,
+				A59D704E1D3CAA4E0085E3B4 /* MMPicRecommendCell.m in Sources */,
 				A5DE7B441D2BBA0C00412F0E /* MMBaseViewController.m in Sources */,
 				A5AC8D0B1D2631DB007DD75D /* AppDelegate.m in Sources */,
+				A59D70511D3CAA6B0085E3B4 /* MMVideoRecommendCell.m in Sources */,
 				A5DE7B4C1D2BD49C00412F0E /* HeroViewController.m in Sources */,
-				A50B8A801D3A10330070172E /* MMRecommendCell.m in Sources */,
+				A59D704B1D3CA9FD0085E3B4 /* MMRecommendCell.m in Sources */,
 				A5DE7B3C1D2BB54500412F0E /* UIView+HUD.m in Sources */,
 				A5AC8D081D2631DB007DD75D /* main.m in Sources */,
 				A50EAFDF1D2CEDB800139C83 /* HerosViewCell.m in Sources */,

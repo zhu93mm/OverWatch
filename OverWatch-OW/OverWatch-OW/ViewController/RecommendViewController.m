@@ -8,6 +8,8 @@
 
 #import "RecommendViewController.h"
 #import <iCarousel.h>
+#import "MMRecommendCell.h"
+#import "MMPicRecommendCell.h"
 
 @interface RecommendViewController ()<UITableViewDelegate, UITableViewDataSource, iCarouselDelegate, iCarouselDataSource>
 
@@ -49,15 +51,46 @@
     return value;
 }
 
+//KVO观察者模式
+- (void)carouselCurrentItemIndexDidChange:(iCarousel *)carousel{
+    _pageControl.currentPage = carousel.currentItemIndex;
+}
+
 #pragma mark - UITableView Delegate
 - (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section{
     return 10;
 }
 
 - (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath{
-    UITableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:@"Cell" forIndexPath:indexPath];
-    cell.textLabel.text = @"The World need heros!";
-    return cell;
+    if (indexPath.row == 1) {
+        MMRecommendCell *cell = [tableView dequeueReusableCellWithIdentifier:@"MMRecommendCell" forIndexPath:indexPath];
+        return cell;
+    }else if (indexPath.row == 2)
+    {
+        MMPicRecommendCell *cell = [tableView dequeueReusableCellWithIdentifier:@"MMPicRecommendCell" forIndexPath:indexPath];
+        return cell;
+    }else{
+        UITableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:@"Cell" forIndexPath:indexPath];
+        cell.textLabel.text = @"The World need heros!";
+        return cell;
+    }
+}
+
+- (CGFloat)tableView:(UITableView *)tableView heightForRowAtIndexPath:(NSIndexPath *)indexPath{
+    if (indexPath.row == 1) {
+        return [tableView fd_heightForCellWithIdentifier:@"MMRecommendCell" configuration:^(id cell) {
+            //高度与内容无关
+        }];
+    }
+    if (indexPath.row == 2) {
+        return [tableView fd_heightForCellWithIdentifier:@"MMPicRecommendCell" configuration:^(id cell) {
+            //高度与内容无关
+        }];
+    }else{
+        return [tableView fd_heightForCellWithIdentifier:@"Cell" configuration:^(id cell) {
+            //高度与内容无关
+        }];
+    }
 }
 
 #pragma mark - LifeCycle 生命周期
@@ -85,7 +118,7 @@
 #pragma mark - LazyLoad 懒加载
 - (UITableView *)recommendTableView {
 	if(_recommendTableView == nil) {
-		_recommendTableView = [[UITableView alloc] init];
+		_recommendTableView = [[UITableView alloc] initWithFrame:CGRectZero style:UITableViewStylePlain];
         [self.view addSubview:_recommendTableView];
         [_recommendTableView mas_makeConstraints:^(MASConstraintMaker *make) {
             make.edges.equalTo(0);
@@ -93,6 +126,8 @@
         _recommendTableView.delegate = self;
         _recommendTableView.dataSource = self;
         [_recommendTableView registerClass:[UITableViewCell class] forCellReuseIdentifier:@"Cell"];
+        [_recommendTableView registerClass:[MMRecommendCell class] forCellReuseIdentifier:@"MMRecommendCell"];
+        [_recommendTableView registerClass:[MMPicRecommendCell class] forCellReuseIdentifier:@"MMPicRecommendCell"];
 	}
 	return _recommendTableView;
 }
@@ -103,6 +138,11 @@
         _ic.delegate = self;
         _ic.dataSource = self;
         [self lineView];
+        [self carouselCurrentItemIndexDidChange:_ic];
+        //头部滑动视图定时滚动
+        [NSTimer bk_scheduledTimerWithTimeInterval:2 block:^(NSTimer *timer) {
+            [_ic scrollToItemAtIndex:_ic.currentItemIndex + 1 animated:YES];
+        } repeats:YES];
 	}
 	return _ic;
 }

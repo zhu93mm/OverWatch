@@ -24,5 +24,6 @@ target 'OverWatch-OW' do
     pod 'MBProgressHUD'
     pod 'MJRefresh'
     pod 'iCarousel'
+    pod 'UITableView+FDTemplateLayoutCell'
     
 end
