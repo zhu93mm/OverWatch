@@ -63,7 +63,7 @@
         }];
         _iconIV1.contentMode = UIViewContentModeScaleAspectFill;
         _iconIV1.clipsToBounds = YES;
-        _iconIV1.image = [UIImage imageNamed:@"iconIV_BG"];
+        _iconIV1.image = [UIImage imageNamed:@"OW-bg"];
     }
     return _iconIV1;
 }
@@ -79,7 +79,7 @@
         }];
         _iconIV2.contentMode = UIViewContentModeScaleAspectFill;
         _iconIV2.clipsToBounds = YES;
-        _iconIV2.image = [UIImage imageNamed:@"iconIV_BG"];
+        _iconIV2.image = [UIImage imageNamed:@"OW-bg"];
     }
     return _iconIV2;
 }
@@ -95,7 +95,7 @@
         }];
         _iconIV3.contentMode = UIViewContentModeScaleAspectFill;
         _iconIV3.clipsToBounds = YES;
-        _iconIV3.image = [UIImage imageNamed:@"iconIV_BG"];
+        _iconIV3.image = [UIImage imageNamed:@"OW-bg"];
     }
     return _iconIV3;
 }

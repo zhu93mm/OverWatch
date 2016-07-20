@@ -7,7 +7,6 @@
 //
 
 #import <Foundation/Foundation.h>
-#import "NSObject+ViewModel.h"
 
 @interface MMBaseViewModel : NSObject
 

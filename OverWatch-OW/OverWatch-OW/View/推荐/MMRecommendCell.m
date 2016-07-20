@@ -27,12 +27,13 @@
         [self.contentView addSubview:_iconIV];
         [_iconIV mas_makeConstraints:^(MASConstraintMaker *make) {
             make.size.equalTo(CGSizeMake(110, 80));
-            make.left.top.equalTo(5);
+            make.top.equalTo(5);
+            make.left.equalTo(10);
             make.bottom.equalTo(-5);
         }];
         _iconIV.contentMode = UIViewContentModeScaleAspectFill;
         _iconIV.clipsToBounds = YES;
-        _iconIV.image = [UIImage imageNamed:@"iconIV_BG"];
+        _iconIV.image = [UIImage imageNamed:@"bg-OW"];
     }
     return _iconIV;
 }

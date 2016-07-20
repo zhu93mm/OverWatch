@@ -25,6 +25,7 @@
 #import "UIScrollView+Refresh.h"
 #import "NSObject+Parse.h"
 #import "NSString+MM.h"
+#import "NSObject+ViewModel.h"
 
 #import <UITableView+FDTemplateLayoutCell.h>  //自动设定tableViewCell高度
 
