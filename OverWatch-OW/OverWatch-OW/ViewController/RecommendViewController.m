@@ -64,6 +64,9 @@
 - (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath{
     if (indexPath.row == 1) {
         MMRecommendCell *cell = [tableView dequeueReusableCellWithIdentifier:@"MMRecommendCell" forIndexPath:indexPath];
+//        cell.titleL.text = @"nihao";
+//        cell.contentL.text = @"nihaoaaaa";
+//        cell.numL.text = @"1000";
         return cell;
     }else if (indexPath.row == 2)
     {
@@ -78,18 +81,14 @@
 
 - (CGFloat)tableView:(UITableView *)tableView heightForRowAtIndexPath:(NSIndexPath *)indexPath{
     if (indexPath.row == 1) {
-        return [tableView fd_heightForCellWithIdentifier:@"MMRecommendCell" configuration:^(id cell) {
-            //高度与内容无关
+        return [tableView fd_heightForCellWithIdentifier:@"MMRecommendCell" configuration:^(MMRecommendCell *cell) {
         }];
     }
     if (indexPath.row == 2) {
-        return [tableView fd_heightForCellWithIdentifier:@"MMPicRecommendCell" configuration:^(id cell) {
-            //高度与内容无关
+        return [tableView fd_heightForCellWithIdentifier:@"MMPicRecommendCell" configuration:^(MMPicRecommendCell *cell) {
         }];
     }else{
-        return [tableView fd_heightForCellWithIdentifier:@"Cell" configuration:^(id cell) {
-            //高度与内容无关
-        }];
+        return 44;
     }
 }
 
