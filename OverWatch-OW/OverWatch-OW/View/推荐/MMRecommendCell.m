@@ -33,7 +33,6 @@
         }];
         _iconIV.contentMode = UIViewContentModeScaleAspectFill;
         _iconIV.clipsToBounds = YES;
-        _iconIV.image = [UIImage imageNamed:@"bg-OW"];
     }
     return _iconIV;
 }
@@ -46,8 +45,7 @@
             make.left.equalTo(self.iconIV.mas_right).equalTo(10);
             make.top.equalTo(10);
         }];
-        _titleL.font = [UIFont systemFontOfSize:18];
-        _titleL.text = @"the world need heros";
+        _titleL.font = [UIFont systemFontOfSize:10];
         [_titleL sizeToFit];
     }
     return _titleL;
@@ -60,10 +58,11 @@
         [_contentL mas_makeConstraints:^(MASConstraintMaker *make) {
             make.left.equalTo(self.titleL);
             make.top.equalTo(self.titleL.mas_bottom).equalTo(10);
+            make.right.equalTo(-10);
         }];
-        _contentL.font = [UIFont systemFontOfSize:15];
-        _contentL.text = @"we need heros";
+        _contentL.font = [UIFont systemFontOfSize:14];
         [_contentL sizeToFit];
+        _contentL.numberOfLines = 0;
     }
     return _contentL;
 }
@@ -73,11 +72,11 @@
         _numL = [[UILabel alloc] init];
         [self.contentView addSubview:_numL];
         [_numL mas_makeConstraints:^(MASConstraintMaker *make) {
-            make.right.bottom.equalTo(-10);
+            make.right.equalTo(-10);
+            make.bottom.equalTo(self.iconIV.mas_bottom);
         }];
         _numL.font = [UIFont systemFontOfSize:10];
         [_numL sizeToFit];
-        _numL.text = @"1000人浏览";
     }
     return _numL;
 }

@@ -10,6 +10,12 @@
 #import "MMBaseViewModel.h"
 #import "MMNetManager.h"
 
+typedef NS_ENUM(NSUInteger, CellType) {
+    all,
+    pic,
+    video
+};
+
 @interface MMRecomViewModel : MMBaseViewModel
 
 - (instancetype)initWithType:(RecomType *)recomType;
@@ -22,6 +28,15 @@
 - (MMRecommendDataIndexpicModel *)indexpicListForRow:(NSInteger)row;
 - (MMRecommendDataListModel *)dataListForRow:(NSInteger)row;
 
+/* 头部滚动视图 */
+- (NSString *)titleIndexForRow:(NSInteger)row;
+- (NSURL *)picURLIndexForRow:(NSInteger)row;
+
+/* 资讯Cell相关 */
+- (CellType)cellType:(NSInteger)row; //Cell的类型(网页/图片/视频)
+- (NSURL *)picURLForRow:(NSInteger)row;
 - (NSString *)titleForRow:(NSInteger)row;
+- (NSString *)contentForRow:(NSInteger)row;
+- (NSString *)numberForRow:(NSInteger)row;
 
 @end

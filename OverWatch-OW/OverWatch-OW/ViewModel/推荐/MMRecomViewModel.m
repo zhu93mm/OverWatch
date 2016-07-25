@@ -57,8 +57,41 @@
     return self.dataList[row];
 }
 
+- (NSString *)titleIndexForRow:(NSInteger)row{
+    return [self indexpicListForRow:row].longtitle;
+}
+
+- (NSURL *)picURLIndexForRow:(NSInteger)row{
+    NSString *picPath = [self indexpicListForRow:row].litpic;
+    return [NSURL URLWithString:picPath];
+}
+
+- (CellType)cellType:(NSInteger)row{
+    NSString *type = [self dataListForRow:row].type;
+    if ([type isEqualToString:@"all"]) {
+        return all;
+    }else if ([type isEqualToString:@"pic"]) {
+        return pic;
+    }else {
+        return video;
+    }
+}
+
+- (NSURL *)picURLForRow:(NSInteger)row{
+    NSString *picPath = [self dataListForRow:row].litpic;
+    return [NSURL URLWithString:picPath];
+}
+
 - (NSString *)titleForRow:(NSInteger)row{
     return [self dataListForRow:row].longtitle;
+}
+
+- (NSString *)contentForRow:(NSInteger)row{
+    return [self dataListForRow:row].desc;
+}
+
+- (NSString *)numberForRow:(NSInteger)row{
+    return [NSString stringWithFormat:@"%@人浏览", [self dataListForRow:row].click];
 }
 
 - (NSArray<MMRecommendDataIndexpicModel *> *)indexpicList {

@@ -10,10 +10,13 @@
 #import <iCarousel.h>
 #import "MMRecommendCell.h"
 #import "MMPicRecommendCell.h"
+#import "MMRecomViewModel.h"
 
 @interface RecommendViewController ()<UITableViewDelegate, UITableViewDataSource, iCarouselDelegate, iCarouselDataSource>
 
 @property (nonatomic) UITableView *recommendTableView;
+@property (nonatomic) MMRecomViewModel *recomVM;
+
 /** 头部滚动视图 */
 @property (nonatomic) iCarousel *ic;
 @property (nonatomic) UIView *lineView;
@@ -25,7 +28,7 @@
 @implementation RecommendViewController
 #pragma mark - iCarousel Delegate
 - (NSInteger)numberOfItemsInCarousel:(iCarousel *)carousel{
-    return 4;
+    return self.recomVM.indexpicList.count;
 }
 
 - (UIView *)carousel:(iCarousel *)carousel viewForItemAtIndex:(NSInteger)index reusingView:(UIView *)view{
@@ -39,7 +42,7 @@
         [iconIV mas_makeConstraints:^(MASConstraintMaker *make) {
             make.edges.equalTo(0);
         }];
-        iconIV.image = [UIImage imageNamed:@"iconIV_BG"];
+        [iconIV setImageWithURL:[self.recomVM picURLIndexForRow:index] placeholder:[UIImage imageNamed:@"bg-OW"]];
     }
     return view;
 }
@@ -54,41 +57,51 @@
 //KVO观察者模式
 - (void)carouselCurrentItemIndexDidChange:(iCarousel *)carousel{
     _pageControl.currentPage = carousel.currentItemIndex;
+    _titleView.text = [self.recomVM titleIndexForRow:carousel.currentItemIndex];
 }
 
 #pragma mark - UITableView Delegate
 - (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section{
-    return 10;
+    return self.recomVM.dataList.count;
 }
 
 - (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath{
-    if (indexPath.row == 1) {
-        MMRecommendCell *cell = [tableView dequeueReusableCellWithIdentifier:@"MMRecommendCell" forIndexPath:indexPath];
-//        cell.titleL.text = @"nihao";
-//        cell.contentL.text = @"nihaoaaaa";
-//        cell.numL.text = @"1000";
-        return cell;
-    }else if (indexPath.row == 2)
-    {
-        MMPicRecommendCell *cell = [tableView dequeueReusableCellWithIdentifier:@"MMPicRecommendCell" forIndexPath:indexPath];
-        return cell;
-    }else{
-        UITableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:@"Cell" forIndexPath:indexPath];
-        cell.textLabel.text = @"The World need heros!";
-        return cell;
+    NSInteger row = indexPath.row;
+    CellType type = [self.recomVM cellType:indexPath.row];
+    switch (type) {
+        case all: {
+            MMRecommendCell *cell = [tableView dequeueReusableCellWithIdentifier:@"MMRecommendCell" forIndexPath:indexPath];
+            [cell.iconIV setImageWithURL:[self.recomVM picURLForRow:row] placeholder:[UIImage imageNamed:@"bg-OW"]];
+            cell.titleL.text = [self.recomVM titleForRow:row];
+            cell.contentL.text = [self.recomVM contentForRow:row];
+            cell.numL.text = [self.recomVM numberForRow:row];
+            return cell;
+        }
+        case pic: {
+            MMPicRecommendCell *cell = [tableView dequeueReusableCellWithIdentifier:@"MMPicRecommendCell" forIndexPath:indexPath];
+            cell.numL.text = [self.recomVM numberForRow:row];
+            cell.titleL.text = [self.recomVM titleForRow:row];
+            return cell;
+        }
+        default: {
+            MMRecommendCell *cell = [tableView dequeueReusableCellWithIdentifier:@"MMRecommendCell" forIndexPath:indexPath];
+            [cell.iconIV setImageWithURL:[self.recomVM picURLForRow:row] placeholder:[UIImage imageNamed:@"bg-OW"]];
+            cell.titleL.text = [self.recomVM titleForRow:row];
+            cell.contentL.text = [self.recomVM contentForRow:row];
+            cell.numL.text = [self.recomVM numberForRow:row];
+            return cell;
+        }
     }
 }
 
 - (CGFloat)tableView:(UITableView *)tableView heightForRowAtIndexPath:(NSIndexPath *)indexPath{
-    if (indexPath.row == 1) {
-        return [tableView fd_heightForCellWithIdentifier:@"MMRecommendCell" configuration:^(MMRecommendCell *cell) {
+    CellType type = [self.recomVM cellType:indexPath.row];
+    if (type == pic) {
+        return [tableView fd_heightForCellWithIdentifier:@"MMPicRecommendCell" configuration:^(MMRecommendCell *cell) {
         }];
-    }
-    if (indexPath.row == 2) {
-        return [tableView fd_heightForCellWithIdentifier:@"MMPicRecommendCell" configuration:^(MMPicRecommendCell *cell) {
+    }else {
+        return [tableView fd_heightForCellWithIdentifier:@"MMRecommendCell" configuration:^(MMPicRecommendCell *cell) {
         }];
-    }else{
-        return 44;
     }
 }
 
@@ -105,8 +118,7 @@
 
 - (void)viewDidLoad {
     [super viewDidLoad];
-    [self recommendTableView];
-    self.recommendTableView.tableHeaderView = self.ic;
+    [self.recommendTableView beginHeaderRefresh];
 }
 
 - (void)didReceiveMemoryWarning {
@@ -118,15 +130,33 @@
 - (UITableView *)recommendTableView {
 	if(_recommendTableView == nil) {
 		_recommendTableView = [[UITableView alloc] initWithFrame:CGRectZero style:UITableViewStylePlain];
-        [self.view addSubview:_recommendTableView];
+        _recommendTableView.delegate = self;
+        _recommendTableView.dataSource = self;
+        [_recommendTableView registerClass:[MMRecommendCell class] forCellReuseIdentifier:@"MMRecommendCell"];
+        [_recommendTableView registerClass:[MMPicRecommendCell class] forCellReuseIdentifier:@"MMPicRecommendCell"];
+        WK(weakSelf);
+        [weakSelf.recommendTableView addHeaderRefresh:^{
+            [weakSelf.recomVM getDataWithRequestMode:RequestModeRefresh completionHandler:^(NSError *error) {
+                if (!error) {
+                    [weakSelf.recommendTableView reloadData];
+                    self.recommendTableView.tableHeaderView = self.ic;
+                }
+                [weakSelf.recommendTableView endHeaderRefresh];
+            }];
+        }];
+        [weakSelf.recommendTableView addBackFooterRefresh:^{
+            [weakSelf.recomVM getDataWithRequestMode:RequestModeMore completionHandler:^(NSError *error) {
+                if (!error) {
+                    [weakSelf.recommendTableView reloadData];
+                    self.recommendTableView.tableHeaderView = self.ic;
+                }
+            }];
+            [weakSelf.recommendTableView endFooterRefresh];
+        }];
+        [weakSelf.view addSubview:_recommendTableView];
         [_recommendTableView mas_makeConstraints:^(MASConstraintMaker *make) {
             make.edges.equalTo(0);
         }];
-        _recommendTableView.delegate = self;
-        _recommendTableView.dataSource = self;
-        [_recommendTableView registerClass:[UITableViewCell class] forCellReuseIdentifier:@"Cell"];
-        [_recommendTableView registerClass:[MMRecommendCell class] forCellReuseIdentifier:@"MMRecommendCell"];
-        [_recommendTableView registerClass:[MMPicRecommendCell class] forCellReuseIdentifier:@"MMPicRecommendCell"];
 	}
 	return _recommendTableView;
 }
@@ -173,7 +203,7 @@
         _pageControl.userInteractionEnabled = NO;
         _pageControl.currentPageIndicatorTintColor = [UIColor blackColor];
         _pageControl.pageIndicatorTintColor = [UIColor grayColor];
-        _pageControl.numberOfPages = 4;
+        _pageControl.numberOfPages = self.recomVM.indexpicList.count;
 	}
 	return _pageControl;
 }
@@ -185,10 +215,19 @@
         [_titleView mas_makeConstraints:^(MASConstraintMaker *make) {
             make.centerY.equalTo(0);
             make.left.equalTo(8);
+            make.width.lessThanOrEqualTo(290);
         }];
-        _titleView.text = @"The world need hero";
+        _titleView.textColor = [UIColor whiteColor];
+        _titleView.font = [UIFont systemFontOfSize:12];
 	}
 	return _titleView;
+}
+
+- (MMRecomViewModel *)recomVM {
+	if(_recomVM == nil) {
+		_recomVM = [[MMRecomViewModel alloc] initWithType:RecomTypeZuiXin];
+	}
+	return _recomVM;
 }
 
 @end

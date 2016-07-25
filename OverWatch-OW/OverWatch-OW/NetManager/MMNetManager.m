@@ -11,8 +11,7 @@
 @implementation MMNetManager
 
 + (id)getRecommend:(RecomType *)recomType start:(NSInteger)startIndex completionHandler:(void (^)(MMRecommendModel *, NSError *))compleHandler{
-    
-    return [self GET:@"http://cache.tuwan.com/app/?appid=1&classmore=indexpic&appid=1&appver=2.1" parameters:nil progress:nil completionHandler:^(id jsonObject, NSError *error) {
+    return [self GET:[NSString stringWithFormat:@"http://cache.tuwan.com/app/?appid=1&classmore=indexpic&appid=1&appver=2.1&start=%ld", startIndex] parameters:nil progress:nil completionHandler:^(id jsonObject, NSError *error) {
         !compleHandler ?: compleHandler([MMRecommendModel parseJSON:jsonObject], error);
     }];
 }

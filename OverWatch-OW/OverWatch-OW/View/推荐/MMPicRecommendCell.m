@@ -8,6 +8,7 @@
 
 #import "MMPicRecommendCell.h"
 #define kInterval ([UIScreen mainScreen].bounds.size.width - 3 * 110 - 2 * 10)/2
+#define titleHeight 15
 
 @implementation MMPicRecommendCell
 
@@ -29,9 +30,8 @@
         [_titleL mas_makeConstraints:^(MASConstraintMaker *make) {
             make.top.left.equalTo(5);
         }];
-        _titleL.font = [UIFont systemFontOfSize:18];
+        _titleL.font = [UIFont systemFontOfSize:titleHeight];
         [_titleL sizeToFit];
-        _titleL.text = @"pectures of hero";
     }
     return _titleL;
 }
@@ -46,7 +46,6 @@
         }];
         _numL.font = [UIFont systemFontOfSize:10];
         [_numL sizeToFit];
-        _numL.text = @"1000人浏览";
     }
     return _numL;
 }
@@ -57,13 +56,14 @@
         [self.contentView addSubview:_iconIV1];
         [_iconIV1 mas_makeConstraints:^(MASConstraintMaker *make) {
             make.left.equalTo(10);
-            make.top.equalTo(self.titleL.mas_bottom).equalTo(5);
+            //不能添加此约束，当titleL的高度需要系统自适应时，这里的iconIV1又添加了一个约束(优先级更高)，而cell的高度也是系统自适应(猜测的)，导致了iconIV1距离cell底部的距离不确定，综合上述使得titleL的高度变的不确定，从而无法正常显示。
+            //make.top.equalTo(self.titleL.mas_bottom).equalTo(5);
+            make.top.equalTo(10 + titleHeight);
             make.size.equalTo(CGSizeMake(110, 80));
             make.bottom.equalTo(-5);
         }];
         _iconIV1.contentMode = UIViewContentModeScaleAspectFill;
         _iconIV1.clipsToBounds = YES;
-        _iconIV1.image = [UIImage imageNamed:@"OW-bg"];
     }
     return _iconIV1;
 }
@@ -79,7 +79,6 @@
         }];
         _iconIV2.contentMode = UIViewContentModeScaleAspectFill;
         _iconIV2.clipsToBounds = YES;
-        _iconIV2.image = [UIImage imageNamed:@"OW-bg"];
     }
     return _iconIV2;
 }
@@ -95,7 +94,6 @@
         }];
         _iconIV3.contentMode = UIViewContentModeScaleAspectFill;
         _iconIV3.clipsToBounds = YES;
-        _iconIV3.image = [UIImage imageNamed:@"OW-bg"];
     }
     return _iconIV3;
 }
