@@ -11,11 +11,14 @@
 #import "MMRecommendCell.h"
 #import "MMPicRecommendCell.h"
 #import "MMRecomViewModel.h"
+#import "MMDetailViewController.h"
+#import "MMPicViewController.h"
+#import "MMVideoViewController.h"
 
 @interface RecommendViewController ()<UITableViewDelegate, UITableViewDataSource, iCarouselDelegate, iCarouselDataSource>
-
 @property (nonatomic) UITableView *recommendTableView;
 @property (nonatomic) MMRecomViewModel *recomVM;
+
 
 /** 头部滚动视图 */
 @property (nonatomic) iCarousel *ic;
@@ -39,11 +42,13 @@
         iconIV.contentMode = UIViewContentModeScaleAspectFill;
         //裁减掉多余部分
         iconIV.clipsToBounds = YES;
+        iconIV.tag = 1000;
         [iconIV mas_makeConstraints:^(MASConstraintMaker *make) {
             make.edges.equalTo(0);
         }];
-        [iconIV setImageWithURL:[self.recomVM picURLIndexForRow:index] placeholder:[UIImage imageNamed:@"bg-OW"]];
     }
+    UIImageView *iconIV = (UIImageView *)[view viewWithTag:1000];
+    [iconIV setImageWithURL:[self.recomVM picURLIndexForRow:index]];
     return view;
 }
 
@@ -81,6 +86,9 @@
             MMPicRecommendCell *cell = [tableView dequeueReusableCellWithIdentifier:@"MMPicRecommendCell" forIndexPath:indexPath];
             cell.numL.text = [self.recomVM numberForRow:row];
             cell.titleL.text = [self.recomVM titleForRow:row];
+            [cell.iconIV1 setImageWithURL:[self.recomVM iconURLForRow:row withIndex:0] placeholder:[UIImage imageNamed:@"bg-OW"]];
+            [cell.iconIV2 setImageWithURL:[self.recomVM iconURLForRow:row withIndex:1] placeholder:[UIImage imageNamed:@"bg-OW"]];
+            [cell.iconIV3 setImageWithURL:[self.recomVM iconURLForRow:row withIndex:2] placeholder:[UIImage imageNamed:@"bg-OW"]];
             return cell;
         }
         default: {
@@ -105,11 +113,51 @@
     }
 }
 
+- (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath{
+    [tableView deselectRowAtIndexPath:indexPath animated:YES];
+    NSInteger row = indexPath.row;
+    CellType type = [self.recomVM cellType:row];
+    switch (type) {
+        case all: {
+            //用于测试网址
+//            if (row == 2) {
+//                MMDetailViewController *detailVC = [[MMDetailViewController alloc] initWithURL:[NSURL URLWithString:@"http://m.tuwan.com/ow/334759/"]];
+//                [self.navigationController pushViewController:detailVC animated:YES];
+//                return;
+//            }
+            MMDetailViewController *detailVC = [[MMDetailViewController alloc] initWithURL:[self.recomVM viewForRow:row]];
+            [self.navigationController pushViewController:detailVC animated:YES];
+            break;
+        }
+        case pic: {
+            MMPicViewController *picVC = [[MMPicViewController alloc] initWithAid:[self.recomVM aidForRow:row]];
+            [self.navigationController pushViewController:picVC animated:YES];
+            break;
+        }
+        default: {
+            /* 正常使用视频播放控件
+            MMVideoViewController *videoVC = [[MMVideoViewController alloc] initWithAid:[self.recomVM aidForRow:row]];
+            [self.navigationController pushViewController:videoVC animated:YES];
+             */
+            
+            // 直接利用抓取网页
+            NSString *aid = [self.recomVM aidForRow:row];
+            NSString *videoUrl = [NSString stringWithFormat:@"http://m.tuwan.com/ow/%@/", aid];
+            MMDetailViewController *detailVC = [[MMDetailViewController alloc] initWithURL:[NSURL URLWithString:videoUrl]];
+            [self.navigationController pushViewController:detailVC animated:YES];
+        }
+    }
+}
+
 #pragma mark - LifeCycle 生命周期
 - (instancetype)init{
     if (self = [super init]) {
         self.title = @"推荐";
         self.navigationItem.title = @"首页-推荐";
+        //设定navigation的返回按钮
+        //UIBarButtonItem *backItem = [[UIBarButtonItem alloc] init];
+        //backItem.title = @"返回";
+        //self.navigationItem.backBarButtonItem = backItem;
         self.tabBarItem.image = [UIImage imageNamed:@"首页-推荐"];
         self.tabBarItem.selectedImage = [UIImage imageNamed:@"首页-推荐点击"];
     }
@@ -167,7 +215,6 @@
         _ic.delegate = self;
         _ic.dataSource = self;
         [self lineView];
-        [self carouselCurrentItemIndexDidChange:_ic];
         //头部滑动视图定时滚动
         [NSTimer bk_scheduledTimerWithTimeInterval:2 block:^(NSTimer *timer) {
             [_ic scrollToItemAtIndex:_ic.currentItemIndex + 1 animated:YES];

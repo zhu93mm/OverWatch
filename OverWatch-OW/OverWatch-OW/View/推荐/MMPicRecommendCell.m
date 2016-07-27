@@ -56,7 +56,7 @@
         [self.contentView addSubview:_iconIV1];
         [_iconIV1 mas_makeConstraints:^(MASConstraintMaker *make) {
             make.left.equalTo(10);
-            //不能添加此约束，当titleL的高度需要系统自适应时，这里的iconIV1又添加了一个约束(优先级更高)，而cell的高度也是系统自适应(猜测的)，导致了iconIV1距离cell底部的距离不确定，综合上述使得titleL的高度变的不确定，从而无法正常显示。
+            //不能添加此约束，当titleL的高度需要系统自适应时，这里的iconIV1又添加了一个约束(优先级更高)，而cell的高度也是系统自适应(猜测的)，导致了iconIV1距离cell底部的距离不确定，综合上述使得titleL的高度变的不确定，从而无法正常显示。(简而言之，cell的高度由内容决定，而内容布局由cell的高度决定，相互引用就出事了)
             //make.top.equalTo(self.titleL.mas_bottom).equalTo(5);
             make.top.equalTo(10 + titleHeight);
             make.size.equalTo(CGSizeMake(110, 80));

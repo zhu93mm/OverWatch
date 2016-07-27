@@ -31,9 +31,17 @@
 
 
 @implementation MMRecommendDataListModel
++ (NSDictionary<NSString *,id> *)modelContainerPropertyGenericClass{
+    return @{@"showitem":[MMRecommendDataListShowitemModel class]};
+}
+
 + (NSDictionary<NSString *,id> *)modelCustomPropertyMapper{
     return @{@"typeName":@"typename", @"desc":@"description"};
 }
+
+@end
+
+@implementation MMRecommendDataListShowitemModel
 
 @end
 

@@ -60,10 +60,10 @@ static const int ddLogLevel = DDLogLevelError;
 #define MAS_SHORTHAND_GLOBALS
 #import <Masonry.h>         //超好用的链式书写AutoLayout的第三方类库，好用的根本停不下来
 
-//#import <UIImageView+WebCache.h>  //SDWebImage
+#import <UIImageView+WebCache.h>  //SDWebImage
 
 //#import <RESideMenu.h>          //QQ的左侧菜单风格
 
-//#import <MWPhotoBrowser.h>      //图片浏览器
+#import <MWPhotoBrowser.h>      //图片浏览器
 
 #endif /* PrefixHeader_pch */

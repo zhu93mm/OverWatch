@@ -35,8 +35,11 @@ typedef NS_ENUM(NSUInteger, CellType) {
 /* 资讯Cell相关 */
 - (CellType)cellType:(NSInteger)row; //Cell的类型(网页/图片/视频)
 - (NSURL *)picURLForRow:(NSInteger)row;
+- (NSURL *)iconURLForRow:(NSInteger)row withIndex:(NSInteger)index;
 - (NSString *)titleForRow:(NSInteger)row;
 - (NSString *)contentForRow:(NSInteger)row;
 - (NSString *)numberForRow:(NSInteger)row;
+- (NSURL *)viewForRow:(NSInteger)row;
+- (NSString *)aidForRow:(NSInteger)row;
 
 @end

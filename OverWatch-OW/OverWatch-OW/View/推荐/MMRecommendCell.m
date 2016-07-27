@@ -45,7 +45,7 @@
             make.left.equalTo(self.iconIV.mas_right).equalTo(10);
             make.top.equalTo(10);
         }];
-        _titleL.font = [UIFont systemFontOfSize:10];
+        _titleL.font = [UIFont systemFontOfSize:15];
         [_titleL sizeToFit];
     }
     return _titleL;

@@ -30,7 +30,7 @@
     _window.rootViewController = self.tabBarC;
     
     //用于测试请求数据是否成功
-//    MMNetManager *netManager = [MMNetManager getRecommend:nil start:1 completionHandler:^(MMRecommendModel *model, NSError *error) {
+//    MMNetManager *netManager = [MMNetManager getPicWithAid:@"334753" completionHandler:^(MMPicModel *model, NSError *error) {
 //        NSLog(@"");
 //    }];
     
@@ -57,6 +57,10 @@
         //统一设置导航栏格式
         [UINavigationBar appearance].barStyle = UIBarStyleBlack;
         [UINavigationBar appearance].backgroundColor = kRGBColor(12, 12, 12, 0.7);
+        //设定返回按钮的颜色
+        [[UINavigationBar appearance] setTintColor:[UIColor whiteColor]];
+        //设定标题颜色
+        //[[UINavigationBar appearance] setTitleTextAttributes:[NSDictionary dictionaryWithObjectsAndKeys:[UIColor whiteColor],NSForegroundColorAttributeName,nil]];
         //统一设置标签栏
         [UITabBar appearance].barTintColor = kRGBColor(12, 12, 12, 0.7);
         [[UITabBarItem appearance] setTitleTextAttributes:[NSDictionary dictionaryWithObjectsAndKeys:[UIFont fontWithName:@"MarkerFelt-Thin" size:12.0], NSFontAttributeName, nil] forState:UIControlStateNormal];

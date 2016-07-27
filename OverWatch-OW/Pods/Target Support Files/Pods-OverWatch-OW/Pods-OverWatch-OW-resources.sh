@@ -86,6 +86,7 @@ if [[ "$CONFIGURATION" == "Debug" ]]; then
   install_resource "FlatUIKit/Resources/Lato-Light.ttf"
   install_resource "FlatUIKit/Resources/Lato-Regular.ttf"
   install_resource "MJRefresh/MJRefresh/MJRefresh.bundle"
+  install_resource "MWPhotoBrowser/MWPhotoBrowser/MWPhotoBrowser.bundle"
 fi
 if [[ "$CONFIGURATION" == "Release" ]]; then
   install_resource "FlatUIKit/Resources/flat-ui-icons-regular.ttf"
@@ -94,6 +95,7 @@ if [[ "$CONFIGURATION" == "Release" ]]; then
   install_resource "FlatUIKit/Resources/Lato-Light.ttf"
   install_resource "FlatUIKit/Resources/Lato-Regular.ttf"
   install_resource "MJRefresh/MJRefresh/MJRefresh.bundle"
+  install_resource "MWPhotoBrowser/MWPhotoBrowser/MWPhotoBrowser.bundle"
 fi
 
 mkdir -p "${TARGET_BUILD_DIR}/${UNLOCALIZED_RESOURCES_FOLDER_PATH}"

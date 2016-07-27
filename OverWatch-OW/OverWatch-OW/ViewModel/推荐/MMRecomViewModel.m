@@ -82,8 +82,13 @@
     return [NSURL URLWithString:picPath];
 }
 
+- (NSURL *)iconURLForRow:(NSInteger)row withIndex:(NSInteger)index{
+    NSString *picPath = [self dataListForRow:row].showitem[index].pic;
+    return [NSURL URLWithString:picPath];
+}
+
 - (NSString *)titleForRow:(NSInteger)row{
-    return [self dataListForRow:row].longtitle;
+    return [self dataListForRow:row].title;
 }
 
 - (NSString *)contentForRow:(NSInteger)row{
@@ -92,6 +97,15 @@
 
 - (NSString *)numberForRow:(NSInteger)row{
     return [NSString stringWithFormat:@"%@人浏览", [self dataListForRow:row].click];
+}
+
+- (NSURL *)viewForRow:(NSInteger)row{
+    NSString *viewPath = [self dataListForRow:row].html5;
+    return [NSURL URLWithString:viewPath];
+}
+
+- (NSString *)aidForRow:(NSInteger)row{
+    return [self dataListForRow:row].aid;
 }
 
 - (NSArray<MMRecommendDataIndexpicModel *> *)indexpicList {

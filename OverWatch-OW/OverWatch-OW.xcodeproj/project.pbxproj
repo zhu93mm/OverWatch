@@ -11,12 +11,16 @@
 		A50EAFDF1D2CEDB800139C83 /* HerosViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = A50EAFDE1D2CEDB800139C83 /* HerosViewCell.m */; };
 		A59D704B1D3CA9FD0085E3B4 /* MMRecommendCell.m in Sources */ = {isa = PBXBuildFile; fileRef = A59D704A1D3CA9FD0085E3B4 /* MMRecommendCell.m */; };
 		A59D704E1D3CAA4E0085E3B4 /* MMPicRecommendCell.m in Sources */ = {isa = PBXBuildFile; fileRef = A59D704D1D3CAA4E0085E3B4 /* MMPicRecommendCell.m */; };
-		A59D70511D3CAA6B0085E3B4 /* MMVideoRecommendCell.m in Sources */ = {isa = PBXBuildFile; fileRef = A59D70501D3CAA6B0085E3B4 /* MMVideoRecommendCell.m */; };
 		A5AC8D081D2631DB007DD75D /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = A5AC8D071D2631DB007DD75D /* main.m */; };
 		A5AC8D0B1D2631DB007DD75D /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = A5AC8D0A1D2631DB007DD75D /* AppDelegate.m */; };
 		A5AC8D111D2631DB007DD75D /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = A5AC8D0F1D2631DB007DD75D /* Main.storyboard */; };
 		A5AC8D131D2631DB007DD75D /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = A5AC8D121D2631DB007DD75D /* Assets.xcassets */; };
 		A5AC8D161D2631DB007DD75D /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = A5AC8D141D2631DB007DD75D /* LaunchScreen.storyboard */; };
+		A5B152481D45C1690070CA9B /* MMDetailViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = A5B152471D45C1690070CA9B /* MMDetailViewController.m */; };
+		A5B1524B1D45C56F0070CA9B /* MMPicViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = A5B1524A1D45C56F0070CA9B /* MMPicViewController.m */; };
+		A5B1524E1D45C5900070CA9B /* MMVideoViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = A5B1524D1D45C5900070CA9B /* MMVideoViewController.m */; };
+		A5B152751D463F330070CA9B /* MMPicModel.m in Sources */ = {isa = PBXBuildFile; fileRef = A5B152741D463F330070CA9B /* MMPicModel.m */; };
+		A5B152781D470C4F0070CA9B /* MMVideoModel.m in Sources */ = {isa = PBXBuildFile; fileRef = A5B152771D470C4F0070CA9B /* MMVideoModel.m */; };
 		A5BB26121D34DCD900AEA556 /* MMRecommendModel.m in Sources */ = {isa = PBXBuildFile; fileRef = A5BB26111D34DCD900AEA556 /* MMRecommendModel.m */; };
 		A5BB26151D34E25400AEA556 /* MMNetManager.m in Sources */ = {isa = PBXBuildFile; fileRef = A5BB26141D34E25400AEA556 /* MMNetManager.m */; };
 		A5BB26191D34EC9B00AEA556 /* MMRecomViewModel.m in Sources */ = {isa = PBXBuildFile; fileRef = A5BB26181D34EC9B00AEA556 /* MMRecomViewModel.m */; };
@@ -47,8 +51,6 @@
 		A59D704A1D3CA9FD0085E3B4 /* MMRecommendCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MMRecommendCell.m; sourceTree = "<group>"; };
 		A59D704C1D3CAA4E0085E3B4 /* MMPicRecommendCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MMPicRecommendCell.h; sourceTree = "<group>"; };
 		A59D704D1D3CAA4E0085E3B4 /* MMPicRecommendCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MMPicRecommendCell.m; sourceTree = "<group>"; };
-		A59D704F1D3CAA6B0085E3B4 /* MMVideoRecommendCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MMVideoRecommendCell.h; sourceTree = "<group>"; };
-		A59D70501D3CAA6B0085E3B4 /* MMVideoRecommendCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MMVideoRecommendCell.m; sourceTree = "<group>"; };
 		A5AC8D031D2631DB007DD75D /* OverWatch-OW.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "OverWatch-OW.app"; sourceTree = BUILT_PRODUCTS_DIR; };
 		A5AC8D071D2631DB007DD75D /* main.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = main.m; sourceTree = "<group>"; };
 		A5AC8D091D2631DB007DD75D /* AppDelegate.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = AppDelegate.h; sourceTree = "<group>"; };
@@ -57,6 +59,16 @@
 		A5AC8D121D2631DB007DD75D /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; name = Assets.xcassets; path = ../Assets.xcassets; sourceTree = "<group>"; };
 		A5AC8D151D2631DB007DD75D /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		A5AC8D171D2631DB007DD75D /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		A5B152461D45C1690070CA9B /* MMDetailViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MMDetailViewController.h; sourceTree = "<group>"; };
+		A5B152471D45C1690070CA9B /* MMDetailViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MMDetailViewController.m; sourceTree = "<group>"; };
+		A5B152491D45C56F0070CA9B /* MMPicViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MMPicViewController.h; sourceTree = "<group>"; };
+		A5B1524A1D45C56F0070CA9B /* MMPicViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MMPicViewController.m; sourceTree = "<group>"; };
+		A5B1524C1D45C5900070CA9B /* MMVideoViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MMVideoViewController.h; sourceTree = "<group>"; };
+		A5B1524D1D45C5900070CA9B /* MMVideoViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MMVideoViewController.m; sourceTree = "<group>"; };
+		A5B152731D463F330070CA9B /* MMPicModel.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MMPicModel.h; sourceTree = "<group>"; };
+		A5B152741D463F330070CA9B /* MMPicModel.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MMPicModel.m; sourceTree = "<group>"; };
+		A5B152761D470C4F0070CA9B /* MMVideoModel.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MMVideoModel.h; sourceTree = "<group>"; };
+		A5B152771D470C4F0070CA9B /* MMVideoModel.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MMVideoModel.m; sourceTree = "<group>"; };
 		A5BB26101D34DCD900AEA556 /* MMRecommendModel.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MMRecommendModel.h; sourceTree = "<group>"; };
 		A5BB26111D34DCD900AEA556 /* MMRecommendModel.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MMRecommendModel.m; sourceTree = "<group>"; };
 		A5BB26131D34E25400AEA556 /* MMNetManager.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MMNetManager.h; sourceTree = "<group>"; };
@@ -134,8 +146,6 @@
 				A59D704A1D3CA9FD0085E3B4 /* MMRecommendCell.m */,
 				A59D704C1D3CAA4E0085E3B4 /* MMPicRecommendCell.h */,
 				A59D704D1D3CAA4E0085E3B4 /* MMPicRecommendCell.m */,
-				A59D704F1D3CAA6B0085E3B4 /* MMVideoRecommendCell.h */,
-				A59D70501D3CAA6B0085E3B4 /* MMVideoRecommendCell.m */,
 			);
 			path = "推荐";
 			sourceTree = "<group>";
@@ -298,6 +308,10 @@
 			children = (
 				A5BB26101D34DCD900AEA556 /* MMRecommendModel.h */,
 				A5BB26111D34DCD900AEA556 /* MMRecommendModel.m */,
+				A5B152731D463F330070CA9B /* MMPicModel.h */,
+				A5B152741D463F330070CA9B /* MMPicModel.m */,
+				A5B152761D470C4F0070CA9B /* MMVideoModel.h */,
+				A5B152771D470C4F0070CA9B /* MMVideoModel.m */,
 			);
 			path = "推荐";
 			sourceTree = "<group>";
@@ -335,6 +349,12 @@
 			children = (
 				A5DE7B511D2BD89F00412F0E /* RecommendViewController.h */,
 				A5DE7B521D2BD89F00412F0E /* RecommendViewController.m */,
+				A5B152461D45C1690070CA9B /* MMDetailViewController.h */,
+				A5B152471D45C1690070CA9B /* MMDetailViewController.m */,
+				A5B152491D45C56F0070CA9B /* MMPicViewController.h */,
+				A5B1524A1D45C56F0070CA9B /* MMPicViewController.m */,
+				A5B1524C1D45C5900070CA9B /* MMVideoViewController.h */,
+				A5B1524D1D45C5900070CA9B /* MMVideoViewController.m */,
 			);
 			name = "推荐";
 			sourceTree = "<group>";
@@ -492,13 +512,16 @@
 				A5DE7B391D2BB54500412F0E /* NSObject+ViewModel.m in Sources */,
 				A59D704E1D3CAA4E0085E3B4 /* MMPicRecommendCell.m in Sources */,
 				A5DE7B441D2BBA0C00412F0E /* MMBaseViewController.m in Sources */,
+				A5B152481D45C1690070CA9B /* MMDetailViewController.m in Sources */,
 				A5AC8D0B1D2631DB007DD75D /* AppDelegate.m in Sources */,
-				A59D70511D3CAA6B0085E3B4 /* MMVideoRecommendCell.m in Sources */,
+				A5B152751D463F330070CA9B /* MMPicModel.m in Sources */,
 				A5DE7B4C1D2BD49C00412F0E /* HeroViewController.m in Sources */,
 				A59D704B1D3CA9FD0085E3B4 /* MMRecommendCell.m in Sources */,
 				A5DE7B3C1D2BB54500412F0E /* UIView+HUD.m in Sources */,
 				A5AC8D081D2631DB007DD75D /* main.m in Sources */,
+				A5B1524E1D45C5900070CA9B /* MMVideoViewController.m in Sources */,
 				A50EAFDF1D2CEDB800139C83 /* HerosViewCell.m in Sources */,
+				A5B1524B1D45C56F0070CA9B /* MMPicViewController.m in Sources */,
 				A5DE7B591D2BD97700412F0E /* MessageViewController.m in Sources */,
 				A5DE7B3B1D2BB54500412F0E /* UIScrollView+Refresh.m in Sources */,
 				A5DE7B471D2BBA6900412F0E /* MMBaseViewModel.m in Sources */,
@@ -507,6 +530,7 @@
 				A5DE7B531D2BD89F00412F0E /* RecommendViewController.m in Sources */,
 				A5BB26151D34E25400AEA556 /* MMNetManager.m in Sources */,
 				A5DE7B3A1D2BB54500412F0E /* NSString+MM.m in Sources */,
+				A5B152781D470C4F0070CA9B /* MMVideoModel.m in Sources */,
 				A5DE7B361D2BB54500412F0E /* AppDelegate+System.m in Sources */,
 				A5DE7B411D2BB9B500412F0E /* MMBaseModel.m in Sources */,
 				A5DE7B371D2BB54500412F0E /* NSObject+AFNetWorking.m in Sources */,
@@ -628,6 +652,7 @@
 				CODE_SIGN_IDENTITY = "iPhone Developer";
 				GCC_PREFIX_HEADER = "$(PRODUCT_NAME)/PrefixHeader.pch";
 				INFOPLIST_FILE = "OverWatch-OW/Info.plist";
+				IPHONEOS_DEPLOYMENT_TARGET = 8.0;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = "com.minmin.OverWatch-OW";
 				PRODUCT_NAME = "$(TARGET_NAME)";
@@ -642,6 +667,7 @@
 				CODE_SIGN_IDENTITY = "iPhone Developer";
 				GCC_PREFIX_HEADER = "$(PRODUCT_NAME)/PrefixHeader.pch";
 				INFOPLIST_FILE = "OverWatch-OW/Info.plist";
+				IPHONEOS_DEPLOYMENT_TARGET = 8.0;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = "com.minmin.OverWatch-OW";
 				PRODUCT_NAME = "$(TARGET_NAME)";

@@ -8,7 +8,7 @@
 
 #import "MMBaseModel.h"
 
-@class MMRecommendDataModel,MMRecommendDataIndexpicModel,MMRecommendDataListModel;
+@class MMRecommendDataModel,MMRecommendDataIndexpicModel,MMRecommendDataListModel, MMRecommendDataListShowitemModel;
 @interface MMRecommendModel : MMBaseModel
 
 @property (nonatomic, copy) NSString *msg;
@@ -74,7 +74,17 @@
 
 @end
 
+@interface MMRecommendDataListShowitemModel : NSObject
+
+@property (nonatomic, copy) NSString *pic;
+
+@property (nonatomic, copy) NSString *text;
+
+@end
+
 @interface MMRecommendDataListModel : NSObject
+
+@property (nonatomic, strong) NSArray<MMRecommendDataListShowitemModel *> *showitem;
 
 @property (nonatomic, copy) NSString *color;
 

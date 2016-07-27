@@ -26,7 +26,7 @@
     NSArray *iconHeroArr = kIconHeroArray;
     NSArray *nameHeroArr = kNameHeroArray;
     NSString *iconStr = [NSString stringWithFormat:kIconHeroPath, iconHeroArr[indexPath.row]];
-    [cell.iconIV setImageWithURL:[NSURL URLWithString:iconStr] placeholderImage:[UIImage imageNamed:@"iconIV_BG"]];
+    [cell.iconIV setImageWithURL:[NSURL URLWithString:iconStr] placeholderImage:[UIImage imageNamed:@"bg-OW"]];
     cell.heroNameLb.text = nameHeroArr[indexPath.row];
     return cell;
 }

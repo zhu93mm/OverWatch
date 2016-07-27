@@ -16,4 +16,18 @@
     }];
 }
 
++ (id)getPicWithAid:(NSString *)aid completionHandler:(void (^)(MMPicModel *, NSError *))completionHandler{
+    return [self GET:[NSString stringWithFormat:@"http://api.tuwan.com/app/?aid=%@&appid=1", aid] parameters:nil progress:nil completionHandler:^(id jsonObject, NSError *error) {
+        NSArray *tmpArr = [MMPicModel parseJSON:jsonObject];
+        !completionHandler ?: completionHandler(tmpArr.firstObject, error);
+    }];
+}
+
++ (id)getVideoWithAid:(NSString *)aid completionHandler:(void (^)(MMVideoModel *, NSError *))completionHandler{
+    return [self GET:[NSString stringWithFormat:@"http://api.tuwan.com/app/?aid=%@&appid=1", aid] parameters:nil progress:nil completionHandler:^(id jsonObject, NSError *error) {
+        NSArray *tmpArr = [MMVideoModel parseJSON:jsonObject];
+        !completionHandler ?: completionHandler(tmpArr.firstObject, error);
+    }];
+}
+
 @end
