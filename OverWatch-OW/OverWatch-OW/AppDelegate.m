@@ -12,6 +12,7 @@
 #import "SquareViewController.h"
 #import "MessageViewController.h"
 #import "MyselfViewController.h"
+#import <SMS_SDK/SMSSDK.h>
 //#import "MMNetManager.h"
 
 @interface AppDelegate ()
@@ -22,7 +23,11 @@
 
 
 - (BOOL)application:(UIApplication *)application didFinishLaunchingWithOptions:(NSDictionary *)launchOptions {
+    //全局默认配置
     [self setupGlobalConfig];
+    
+    //初始化应用，appKey和appSecret从后台申请得
+    [SMSSDK registerApp:@"15abd4d324559" withSecret:@"3dd4fd515a28bd2a1dc43cd652089a8e"];
     
     _window = [[UIWindow alloc] initWithFrame:[UIScreen mainScreen].bounds];
     _window.backgroundColor = [UIColor whiteColor];

@@ -7,6 +7,7 @@
 //
 
 #import "MMRegisterViewController.h"
+#import <SMS_SDK/SMSSDK.h>
 #define kValidationBtnWidth 100
 
 @interface MMRegisterViewController ()
@@ -114,6 +115,9 @@
         [_validationBtn setTitle:@"获取验证码" forState:UIControlStateNormal];
         [_validationBtn setBackgroundColor:kRGBColor(86, 215, 42, 0.8)];
         _validationBtn.layer.cornerRadius = 10;
+        [_validationBtn bk_addEventHandler:^(id sender) {
+            [self validationBtnClicked];
+        } forControlEvents:UIControlEventTouchUpInside];
     }
     return _validationBtn;
 }
@@ -156,6 +160,9 @@
         [_inputValidationBtn setTitle:@"验证" forState:UIControlStateNormal];
         [_inputValidationBtn setBackgroundColor:kRGBColor(86, 215, 42, 0.8)];
         _inputValidationBtn.layer.cornerRadius = 10;
+        [_inputValidationBtn bk_addEventHandler:^(id sender) {
+            [self inputValidationBtnClicked];
+        } forControlEvents:UIControlEventTouchUpInside];
     }
     return _inputValidationBtn;
 }
@@ -208,6 +215,41 @@
         _confirmPwdTF.clearButtonMode = UITextFieldViewModeWhileEditing;
 	}
 	return _confirmPwdTF;
+}
+
+#pragma mark - Methods 
+//Mob短信验证码SDK集成
+- (void)validationBtnClicked {
+    /**
+     *  @from                    v1.1.1
+     *  @brief                   获取验证码(Get verification code)
+     *  @param method            获取验证码的方法(The method of getting verificationCode)
+     *  @param phoneNumber       电话号码(The phone number)
+     *  @param zone              区域号，不要加"+"号(Area code)
+     *  @param customIdentifier  自定义短信模板标识 该标识需从官网http://www.mob.com上申请，审核通过后获得。
+     *  @param result            请求结果回调(Results of the request)
+     */
+    [SMSSDK getVerificationCodeByMethod:SMSGetCodeMethodSMS phoneNumber:self.validationTF.text zone:@"86" customIdentifier:nil result:^(NSError *error) {
+        if (!error) {
+            //NSLog(@"获取验证码成功");
+            [self.view showWarning:@"获取验证码成功"];
+        } else {
+            //NSLog(@"错误信息：%@",error);
+            [self.view showWarning:@"获取验证码失败"];
+        }
+    }];
+}
+
+- (void)inputValidationBtnClicked {
+    [SMSSDK commitVerificationCode:self.inputValidationTF.text phoneNumber:self.validationTF.text zone:@"86" result:^(NSError *error) {
+        if (!error) {
+            //NSLog(@"验证成功");
+            [self.view showWarning:@"验证通过"];
+        } else {
+            //NSLog(@"错误信息:%@",error);
+            [self.view showWarning:@"验证失败"];
+        }
+    }];
 }
 
 @end
