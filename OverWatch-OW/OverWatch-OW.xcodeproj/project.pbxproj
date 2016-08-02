@@ -11,6 +11,7 @@
 		A50EAFDF1D2CEDB800139C83 /* HerosViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = A50EAFDE1D2CEDB800139C83 /* HerosViewCell.m */; };
 		A59D704B1D3CA9FD0085E3B4 /* MMRecommendCell.m in Sources */ = {isa = PBXBuildFile; fileRef = A59D704A1D3CA9FD0085E3B4 /* MMRecommendCell.m */; };
 		A59D704E1D3CAA4E0085E3B4 /* MMPicRecommendCell.m in Sources */ = {isa = PBXBuildFile; fileRef = A59D704D1D3CAA4E0085E3B4 /* MMPicRecommendCell.m */; };
+		A5A565BC1D4F42A800CC589D /* MMRegisterViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = A5A565BB1D4F42A800CC589D /* MMRegisterViewController.m */; };
 		A5AC8D081D2631DB007DD75D /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = A5AC8D071D2631DB007DD75D /* main.m */; };
 		A5AC8D0B1D2631DB007DD75D /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = A5AC8D0A1D2631DB007DD75D /* AppDelegate.m */; };
 		A5AC8D111D2631DB007DD75D /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = A5AC8D0F1D2631DB007DD75D /* Main.storyboard */; };
@@ -24,6 +25,8 @@
 		A5BB26121D34DCD900AEA556 /* MMRecommendModel.m in Sources */ = {isa = PBXBuildFile; fileRef = A5BB26111D34DCD900AEA556 /* MMRecommendModel.m */; };
 		A5BB26151D34E25400AEA556 /* MMNetManager.m in Sources */ = {isa = PBXBuildFile; fileRef = A5BB26141D34E25400AEA556 /* MMNetManager.m */; };
 		A5BB26191D34EC9B00AEA556 /* MMRecomViewModel.m in Sources */ = {isa = PBXBuildFile; fileRef = A5BB26181D34EC9B00AEA556 /* MMRecomViewModel.m */; };
+		A5DA420A1D49A7FF00C82687 /* MMLoginLViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = A5DA42091D49A7FF00C82687 /* MMLoginLViewController.m */; };
+		A5DA420D1D49FA4F00C82687 /* MMLoginViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = A5DA420C1D49FA4F00C82687 /* MMLoginViewController.m */; };
 		A5DE7B361D2BB54500412F0E /* AppDelegate+System.m in Sources */ = {isa = PBXBuildFile; fileRef = A5DE7B291D2BB54500412F0E /* AppDelegate+System.m */; };
 		A5DE7B371D2BB54500412F0E /* NSObject+AFNetWorking.m in Sources */ = {isa = PBXBuildFile; fileRef = A5DE7B2B1D2BB54500412F0E /* NSObject+AFNetWorking.m */; };
 		A5DE7B381D2BB54500412F0E /* NSObject+Parse.m in Sources */ = {isa = PBXBuildFile; fileRef = A5DE7B2D1D2BB54500412F0E /* NSObject+Parse.m */; };
@@ -51,6 +54,8 @@
 		A59D704A1D3CA9FD0085E3B4 /* MMRecommendCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MMRecommendCell.m; sourceTree = "<group>"; };
 		A59D704C1D3CAA4E0085E3B4 /* MMPicRecommendCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MMPicRecommendCell.h; sourceTree = "<group>"; };
 		A59D704D1D3CAA4E0085E3B4 /* MMPicRecommendCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MMPicRecommendCell.m; sourceTree = "<group>"; };
+		A5A565BA1D4F42A800CC589D /* MMRegisterViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MMRegisterViewController.h; sourceTree = "<group>"; };
+		A5A565BB1D4F42A800CC589D /* MMRegisterViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MMRegisterViewController.m; sourceTree = "<group>"; };
 		A5AC8D031D2631DB007DD75D /* OverWatch-OW.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "OverWatch-OW.app"; sourceTree = BUILT_PRODUCTS_DIR; };
 		A5AC8D071D2631DB007DD75D /* main.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = main.m; sourceTree = "<group>"; };
 		A5AC8D091D2631DB007DD75D /* AppDelegate.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = AppDelegate.h; sourceTree = "<group>"; };
@@ -75,6 +80,10 @@
 		A5BB26141D34E25400AEA556 /* MMNetManager.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MMNetManager.m; sourceTree = "<group>"; };
 		A5BB26171D34EC9B00AEA556 /* MMRecomViewModel.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MMRecomViewModel.h; sourceTree = "<group>"; };
 		A5BB26181D34EC9B00AEA556 /* MMRecomViewModel.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MMRecomViewModel.m; sourceTree = "<group>"; };
+		A5DA42081D49A7FF00C82687 /* MMLoginLViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MMLoginLViewController.h; sourceTree = "<group>"; };
+		A5DA42091D49A7FF00C82687 /* MMLoginLViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MMLoginLViewController.m; sourceTree = "<group>"; };
+		A5DA420B1D49FA4F00C82687 /* MMLoginViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MMLoginViewController.h; sourceTree = "<group>"; };
+		A5DA420C1D49FA4F00C82687 /* MMLoginViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MMLoginViewController.m; sourceTree = "<group>"; };
 		A5DE7B271D2BB29000412F0E /* PrefixHeader.pch */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = PrefixHeader.pch; sourceTree = "<group>"; };
 		A5DE7B281D2BB54500412F0E /* AppDelegate+System.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "AppDelegate+System.h"; sourceTree = "<group>"; };
 		A5DE7B291D2BB54500412F0E /* AppDelegate+System.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "AppDelegate+System.m"; sourceTree = "<group>"; };
@@ -382,6 +391,12 @@
 			children = (
 				A5DE7B5A1D2BDA1E00412F0E /* MyselfViewController.h */,
 				A5DE7B5B1D2BDA1E00412F0E /* MyselfViewController.m */,
+				A5DA42081D49A7FF00C82687 /* MMLoginLViewController.h */,
+				A5DA42091D49A7FF00C82687 /* MMLoginLViewController.m */,
+				A5DA420B1D49FA4F00C82687 /* MMLoginViewController.h */,
+				A5DA420C1D49FA4F00C82687 /* MMLoginViewController.m */,
+				A5A565BA1D4F42A800CC589D /* MMRegisterViewController.h */,
+				A5A565BB1D4F42A800CC589D /* MMRegisterViewController.m */,
 			);
 			name = "我";
 			sourceTree = "<group>";
@@ -515,6 +530,7 @@
 				A5B152481D45C1690070CA9B /* MMDetailViewController.m in Sources */,
 				A5AC8D0B1D2631DB007DD75D /* AppDelegate.m in Sources */,
 				A5B152751D463F330070CA9B /* MMPicModel.m in Sources */,
+				A5DA420A1D49A7FF00C82687 /* MMLoginLViewController.m in Sources */,
 				A5DE7B4C1D2BD49C00412F0E /* HeroViewController.m in Sources */,
 				A59D704B1D3CA9FD0085E3B4 /* MMRecommendCell.m in Sources */,
 				A5DE7B3C1D2BB54500412F0E /* UIView+HUD.m in Sources */,
@@ -530,6 +546,8 @@
 				A5DE7B531D2BD89F00412F0E /* RecommendViewController.m in Sources */,
 				A5BB26151D34E25400AEA556 /* MMNetManager.m in Sources */,
 				A5DE7B3A1D2BB54500412F0E /* NSString+MM.m in Sources */,
+				A5A565BC1D4F42A800CC589D /* MMRegisterViewController.m in Sources */,
+				A5DA420D1D49FA4F00C82687 /* MMLoginViewController.m in Sources */,
 				A5B152781D470C4F0070CA9B /* MMVideoModel.m in Sources */,
 				A5DE7B361D2BB54500412F0E /* AppDelegate+System.m in Sources */,
 				A5DE7B411D2BB9B500412F0E /* MMBaseModel.m in Sources */,

@@ -13,7 +13,7 @@
 #import "MMRecomViewModel.h"
 #import "MMDetailViewController.h"
 #import "MMPicViewController.h"
-#import "MMVideoViewController.h"
+//#import "MMVideoViewController.h"
 
 @interface RecommendViewController ()<UITableViewDelegate, UITableViewDataSource, iCarouselDelegate, iCarouselDataSource>
 @property (nonatomic) UITableView *recommendTableView;
@@ -31,7 +31,8 @@
 @implementation RecommendViewController
 #pragma mark - iCarousel Delegate
 - (NSInteger)numberOfItemsInCarousel:(iCarousel *)carousel{
-    return self.recomVM.indexpicList.count;
+    //return self.recomVM.indexpicList.count;
+    return 4;
 }
 
 - (UIView *)carousel:(iCarousel *)carousel viewForItemAtIndex:(NSInteger)index reusingView:(UIView *)view{
@@ -48,7 +49,8 @@
         }];
     }
     UIImageView *iconIV = (UIImageView *)[view viewWithTag:1000];
-    [iconIV setImageWithURL:[self.recomVM picURLIndexForRow:index]];
+    //[iconIV setImageWithURL:[self.recomVM picURLIndexForRow:index]];
+    [iconIV setImageWithURL:nil placeholderImage:[UIImage imageNamed:@"bg-OW"]];
     return view;
 }
 
@@ -62,7 +64,8 @@
 //KVO观察者模式
 - (void)carouselCurrentItemIndexDidChange:(iCarousel *)carousel{
     _pageControl.currentPage = carousel.currentItemIndex;
-    _titleView.text = [self.recomVM titleIndexForRow:carousel.currentItemIndex];
+    //_titleView.text = [self.recomVM titleIndexForRow:carousel.currentItemIndex];
+    _titleView.text = @"the world need heros!";
 }
 
 #pragma mark - UITableView Delegate
@@ -148,6 +151,18 @@
         }
     }
 }
+
+/* 给cell添加动画
+- (void)tableView:(UITableView *)tableView willDisplayCell:(UITableViewCell *)cell forRowAtIndexPath:(NSIndexPath *)indexPath{
+    //设置Cell的动画效果为3D效果
+    //设置x和y的初始值为0.1；
+    cell.layer.transform = CATransform3DMakeScale(0.1, 0.1, 1);
+    //x和y的最终值为1
+    [UIView animateWithDuration:1 animations:^{
+        cell.layer.transform = CATransform3DMakeScale(1, 1, 1);
+    }];
+}
+ */
 
 #pragma mark - LifeCycle 生命周期
 - (instancetype)init{
@@ -250,7 +265,8 @@
         _pageControl.userInteractionEnabled = NO;
         _pageControl.currentPageIndicatorTintColor = [UIColor blackColor];
         _pageControl.pageIndicatorTintColor = [UIColor grayColor];
-        _pageControl.numberOfPages = self.recomVM.indexpicList.count;
+        //_pageControl.numberOfPages = self.recomVM.indexpicList.count;
+        _pageControl.numberOfPages = 4;
 	}
 	return _pageControl;
 }

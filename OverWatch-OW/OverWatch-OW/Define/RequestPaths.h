@@ -30,5 +30,7 @@
 
 //守望(推荐页)
 #define kShouWangPath @"http://cache.tuwan.com/app/?appid=1&dtid=57067&appid=1&appver=2.1&start=%ld"
+//首页
+#define kTouTiaoPath @"http://cache.tuwan.com/app/?appid=1&classmore=indexpic&appid=1&appver=2.1&start=%ld"  
 
 #endif /* RequestPaths_h */

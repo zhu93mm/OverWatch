@@ -37,11 +37,13 @@
         make.height.equalTo(btn.mas_width).multipliedBy(175 / 320.0);
     }];
     
+    /* MPMoviePlayerViewController在9.0中被移除了
     [btn bk_addEventHandler:^(id sender) {
         NSURL *videoURL = [NSURL URLWithString:self.videoMadel.content.firstObject.video];
         MPMoviePlayerViewController *videoVC = [[MPMoviePlayerViewController alloc] initWithContentURL:videoURL];
         [self presentViewController:videoVC animated:YES completion:nil];
     } forControlEvents:UIControlEventTouchUpInside];
+     */
     
     [self.view showBusyHUD];
     [MMNetManager getVideoWithAid:self.aid completionHandler:^(MMVideoModel *model, NSError *error) {
