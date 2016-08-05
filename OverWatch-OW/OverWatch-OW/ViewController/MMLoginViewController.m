@@ -137,7 +137,7 @@
             make.top.equalTo(self.pwdTF.mas_bottom).equalTo(20);
             make.centerX.equalTo(0);
             make.width.equalTo(300);
-            make.height.equalTo(35);
+            make.height.equalTo(45);
         }];
         [_loginBtn setTitle:@"登录" forState:UIControlStateNormal];
         [_loginBtn setBackgroundColor:kRGBColor(86, 215, 42, 0.8)];

@@ -25,6 +25,8 @@
 @property (nonatomic, strong) UITextField *userPwdTF;
 //确认密码
 @property (nonatomic, strong) UITextField *confirmPwdTF;
+//注册
+@property (nonatomic, strong) UIButton *registerBtn;
 
 @end
 
@@ -40,10 +42,7 @@
 - (void)viewDidLoad {
     [super viewDidLoad];
     self.view.backgroundColor = kBGColor;
-    [self userNameTF];
-    [self validationTF];
-    [self inputValidationTF];
-    [self confirmPwdTF];
+    [self registerBtn];
 }
 
 - (void)didReceiveMemoryWarning {
@@ -217,6 +216,25 @@
 	return _confirmPwdTF;
 }
 
+- (UIButton *)registerBtn {
+    if(_registerBtn == nil) {
+        _registerBtn = [UIButton buttonWithType:UIButtonTypeSystem];
+        [self.view addSubview:_registerBtn];
+        [_registerBtn mas_makeConstraints:^(MASConstraintMaker *make) {
+            make.top.equalTo(self.confirmPwdTF.mas_bottom).equalTo(30);
+            make.size.equalTo(CGSizeMake(300, 45));
+            make.centerX.equalTo(0);
+        }];
+        [_registerBtn setTitle:@"注册" forState:UIControlStateNormal];
+        [_registerBtn setBackgroundColor:kRGBColor(86, 215, 42, 0.8)];
+        _registerBtn.layer.cornerRadius = 10;
+        [_registerBtn bk_addEventHandler:^(id sender) {
+            [self registerBtnClicked];
+        } forControlEvents:UIControlEventTouchUpInside];
+    }
+    return _registerBtn;
+}
+
 #pragma mark - Methods 
 //Mob短信验证码SDK集成
 - (void)validationBtnClicked {
@@ -250,6 +268,11 @@
             [self.view showWarning:@"验证失败"];
         }
     }];
+}
+
+//注册按钮
+- (void)registerBtnClicked {
+    [self.view showWarning:@"注册成功!"];
 }
 
 @end

@@ -8,6 +8,7 @@
 
 #import "HeroViewController.h"
 #import "HerosViewCell.h"
+#import "MMSkillsViewController.h"
 
 @interface HeroViewController ()<UICollectionViewDelegate, UICollectionViewDataSource>
 @property (nonatomic, strong) UICollectionView *heroCollection;
@@ -40,6 +41,18 @@
     [UIView animateWithDuration:1 animations:^{
         cell.layer.transform = CATransform3DMakeScale(1, 1, 1);
     }];
+}
+
+- (void)collectionView:(UICollectionView *)collectionView didSelectItemAtIndexPath:(NSIndexPath *)indexPath{
+//    [collectionView deselectItemAtIndexPath:indexPath animated:YES];
+    //获取英雄名字
+    NSArray *nameHeroArr = kNameHeroArray;
+    NSString *nameHero = [nameHeroArr[indexPath.row] substringFromIndex:3];
+    MMSkillsViewController *skillsVC = [[MMSkillsViewController alloc] initWithName:nameHero];
+    //设置“返回”按钮
+    UIBarButtonItem *backBtn = [[UIBarButtonItem alloc] initWithTitle:@"返回" style:UIBarButtonItemStylePlain target:nil action:nil];
+    self.navigationItem.backBarButtonItem = backBtn;
+    [self.navigationController pushViewController:skillsVC animated:YES];
 }
 
 #pragma mark - LifeCycle 生命周期

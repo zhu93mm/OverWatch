@@ -8,7 +8,6 @@
 
 /* Begin PBXBuildFile section */
 		83414F4FE9195668F7796F98 /* libPods-OverWatch-OW.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 3F0634487CDDA8DF393D0E86 /* libPods-OverWatch-OW.a */; };
-		A50EAFDF1D2CEDB800139C83 /* HerosViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = A50EAFDE1D2CEDB800139C83 /* HerosViewCell.m */; };
 		A54CFA7C1D50C3D600995AF3 /* MOBFoundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = A54CFA7A1D50C3D600995AF3 /* MOBFoundation.framework */; };
 		A54CFA7D1D50C3D600995AF3 /* SMS_SDK.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = A54CFA7B1D50C3D600995AF3 /* SMS_SDK.framework */; };
 		A54CFA7F1D50C44B00995AF3 /* libz.tbd in Frameworks */ = {isa = PBXBuildFile; fileRef = A54CFA7E1D50C44B00995AF3 /* libz.tbd */; };
@@ -49,14 +48,15 @@
 		A5DE7B561D2BD92600412F0E /* SquareViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = A5DE7B551D2BD92600412F0E /* SquareViewController.m */; };
 		A5DE7B591D2BD97700412F0E /* MessageViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = A5DE7B581D2BD97700412F0E /* MessageViewController.m */; };
 		A5DE7B5C1D2BDA1E00412F0E /* MyselfViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = A5DE7B5B1D2BDA1E00412F0E /* MyselfViewController.m */; };
+		A5EE84761D54679000765E5B /* MMSkillsViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = A5EE84751D54679000765E5B /* MMSkillsViewController.m */; };
+		A5EE84801D5490D200765E5B /* HerosViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = A5EE847D1D5490D200765E5B /* HerosViewCell.m */; };
+		A5EE84811D5490D200765E5B /* MMSkillViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = A5EE847F1D5490D200765E5B /* MMSkillViewCell.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
 		3F0634487CDDA8DF393D0E86 /* libPods-OverWatch-OW.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = "libPods-OverWatch-OW.a"; sourceTree = BUILT_PRODUCTS_DIR; };
 		7C560A03A19FADA743A6CB16 /* Pods-OverWatch-OW.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-OverWatch-OW.release.xcconfig"; path = "Pods/Target Support Files/Pods-OverWatch-OW/Pods-OverWatch-OW.release.xcconfig"; sourceTree = "<group>"; };
 		98044453EA1A8944D98D337A /* Pods-OverWatch-OW.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-OverWatch-OW.debug.xcconfig"; path = "Pods/Target Support Files/Pods-OverWatch-OW/Pods-OverWatch-OW.debug.xcconfig"; sourceTree = "<group>"; };
-		A50EAFDD1D2CEDB800139C83 /* HerosViewCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = HerosViewCell.h; sourceTree = "<group>"; };
-		A50EAFDE1D2CEDB800139C83 /* HerosViewCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = HerosViewCell.m; sourceTree = "<group>"; };
 		A54CFA7A1D50C3D600995AF3 /* MOBFoundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; path = MOBFoundation.framework; sourceTree = "<group>"; };
 		A54CFA7B1D50C3D600995AF3 /* SMS_SDK.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; path = SMS_SDK.framework; sourceTree = "<group>"; };
 		A54CFA7E1D50C44B00995AF3 /* libz.tbd */ = {isa = PBXFileReference; lastKnownFileType = "sourcecode.text-based-dylib-definition"; name = libz.tbd; path = usr/lib/libz.tbd; sourceTree = SDKROOT; };
@@ -131,6 +131,12 @@
 		A5DE7B581D2BD97700412F0E /* MessageViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MessageViewController.m; sourceTree = "<group>"; };
 		A5DE7B5A1D2BDA1E00412F0E /* MyselfViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MyselfViewController.h; sourceTree = "<group>"; };
 		A5DE7B5B1D2BDA1E00412F0E /* MyselfViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MyselfViewController.m; sourceTree = "<group>"; };
+		A5EE84741D54679000765E5B /* MMSkillsViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MMSkillsViewController.h; sourceTree = "<group>"; };
+		A5EE84751D54679000765E5B /* MMSkillsViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MMSkillsViewController.m; sourceTree = "<group>"; };
+		A5EE847C1D5490D200765E5B /* HerosViewCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = HerosViewCell.h; sourceTree = "<group>"; };
+		A5EE847D1D5490D200765E5B /* HerosViewCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = HerosViewCell.m; sourceTree = "<group>"; };
+		A5EE847E1D5490D200765E5B /* MMSkillViewCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MMSkillViewCell.h; sourceTree = "<group>"; };
+		A5EE847F1D5490D200765E5B /* MMSkillViewCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MMSkillViewCell.m; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -320,6 +326,7 @@
 			isa = PBXGroup;
 			children = (
 				A59D70481D3CA9FD0085E3B4 /* 推荐 */,
+				A5EE847B1D5490D200765E5B /* 英雄 */,
 			);
 			path = View;
 			sourceTree = "<group>";
@@ -383,8 +390,8 @@
 			children = (
 				A5DE7B4A1D2BD49C00412F0E /* HeroViewController.h */,
 				A5DE7B4B1D2BD49C00412F0E /* HeroViewController.m */,
-				A50EAFDD1D2CEDB800139C83 /* HerosViewCell.h */,
-				A50EAFDE1D2CEDB800139C83 /* HerosViewCell.m */,
+				A5EE84741D54679000765E5B /* MMSkillsViewController.h */,
+				A5EE84751D54679000765E5B /* MMSkillsViewController.m */,
 			);
 			name = "英雄";
 			sourceTree = "<group>";
@@ -435,6 +442,17 @@
 				A5A565BB1D4F42A800CC589D /* MMRegisterViewController.m */,
 			);
 			name = "我";
+			sourceTree = "<group>";
+		};
+		A5EE847B1D5490D200765E5B /* 英雄 */ = {
+			isa = PBXGroup;
+			children = (
+				A5EE847C1D5490D200765E5B /* HerosViewCell.h */,
+				A5EE847D1D5490D200765E5B /* HerosViewCell.m */,
+				A5EE847E1D5490D200765E5B /* MMSkillViewCell.h */,
+				A5EE847F1D5490D200765E5B /* MMSkillViewCell.m */,
+			);
+			path = "英雄";
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -572,7 +590,6 @@
 				A5DE7B3C1D2BB54500412F0E /* UIView+HUD.m in Sources */,
 				A5AC8D081D2631DB007DD75D /* main.m in Sources */,
 				A5B1524E1D45C5900070CA9B /* MMVideoViewController.m in Sources */,
-				A50EAFDF1D2CEDB800139C83 /* HerosViewCell.m in Sources */,
 				A5B1524B1D45C56F0070CA9B /* MMPicViewController.m in Sources */,
 				A5DE7B591D2BD97700412F0E /* MessageViewController.m in Sources */,
 				A5DE7B3B1D2BB54500412F0E /* UIScrollView+Refresh.m in Sources */,
@@ -582,14 +599,17 @@
 				A5DE7B531D2BD89F00412F0E /* RecommendViewController.m in Sources */,
 				A5BB26151D34E25400AEA556 /* MMNetManager.m in Sources */,
 				A5DE7B3A1D2BB54500412F0E /* NSString+MM.m in Sources */,
+				A5EE84811D5490D200765E5B /* MMSkillViewCell.m in Sources */,
 				A5A565BC1D4F42A800CC589D /* MMRegisterViewController.m in Sources */,
 				A5DA420D1D49FA4F00C82687 /* MMLoginViewController.m in Sources */,
 				A5B152781D470C4F0070CA9B /* MMVideoModel.m in Sources */,
+				A5EE84801D5490D200765E5B /* HerosViewCell.m in Sources */,
 				A5DE7B361D2BB54500412F0E /* AppDelegate+System.m in Sources */,
 				A5DE7B411D2BB9B500412F0E /* MMBaseModel.m in Sources */,
 				A5DE7B371D2BB54500412F0E /* NSObject+AFNetWorking.m in Sources */,
 				A5BB26121D34DCD900AEA556 /* MMRecommendModel.m in Sources */,
 				A5DE7B561D2BD92600412F0E /* SquareViewController.m in Sources */,
+				A5EE84761D54679000765E5B /* MMSkillsViewController.m in Sources */,
 				A5BB26191D34EC9B00AEA556 /* MMRecomViewModel.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
