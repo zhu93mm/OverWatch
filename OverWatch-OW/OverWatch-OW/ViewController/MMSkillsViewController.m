@@ -11,6 +11,7 @@
 
 @interface MMSkillsViewController ()<UITableViewDelegate, UITableViewDataSource>
 @property (nonatomic, assign) NSString *name;
+@property (nonatomic, strong) UIImageView *iconIV;
 @property (nonatomic, strong) UITableView *skillsTableView;
 
 @end
@@ -24,7 +25,13 @@
 - (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath{
     MMSkillViewCell *cell = [tableView dequeueReusableCellWithIdentifier:@"Cell" forIndexPath:indexPath];
     cell.skillNameLb.text = @"hero";
+    cell.skillKeyLb.text = @"左键";
     return cell;
+}
+
+- (CGFloat)tableView:(UITableView *)tableView heightForRowAtIndexPath:(NSIndexPath *)indexPath{
+    return [tableView fd_heightForCellWithIdentifier:@"Cell" configuration:^(MMSkillViewCell *cell) {
+    }];
 }
 
 #pragma mark - LifeCycle 生命周期
@@ -53,13 +60,30 @@
 		_skillsTableView = [[UITableView alloc] init];
         [self.view addSubview:_skillsTableView];
         [_skillsTableView mas_makeConstraints:^(MASConstraintMaker *make) {
-            make.edges.equalTo(0);
+            make.top.equalTo(self.iconIV.mas_bottom).equalTo(-50);
+            make.left.right.bottom.equalTo(0);
         }];
         _skillsTableView.delegate = self;
         _skillsTableView.dataSource = self;
         [_skillsTableView registerClass:[MMSkillViewCell class] forCellReuseIdentifier:@"Cell"];
 	}
 	return _skillsTableView;
+}
+
+- (UIImageView *)iconIV {
+	if(_iconIV == nil) {
+		_iconIV = [[UIImageView alloc] init];
+        [self.view addSubview:_iconIV];
+        [_iconIV mas_makeConstraints:^(MASConstraintMaker *make) {
+            make.top.equalTo(64);
+            make.left.right.equalTo(0);
+            make.height.equalTo(150);
+        }];
+        _iconIV.contentMode = UIViewContentModeScaleAspectFill;
+        _iconIV.clipsToBounds = YES;
+        _iconIV.image = [UIImage imageNamed:@"bg-OW"];
+	}
+	return _iconIV;
 }
 
 @end

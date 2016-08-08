@@ -57,7 +57,10 @@
         UINavigationController *messageNavi = [[UINavigationController alloc] initWithRootViewController:messageVC];
         UINavigationController *myselfNavi = [[UINavigationController alloc] initWithRootViewController:myselfVC];
         
+        /* 上架 注释
         _tabBarC.viewControllers = @[recommendNavi, heroNavi, squareNavi, messageNavi, myselfNavi];
+         */
+        _tabBarC.viewControllers = @[recommendNavi, heroNavi];
         
         //统一设置导航栏格式
         [UINavigationBar appearance].barStyle = UIBarStyleBlack;

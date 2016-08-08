@@ -50,7 +50,9 @@
     }
     UIImageView *iconIV = (UIImageView *)[view viewWithTag:1000];
     //[iconIV setImageWithURL:[self.recomVM picURLIndexForRow:index]];
-    [iconIV setImageWithURL:nil placeholderImage:[UIImage imageNamed:@"bg-OW"]];
+    NSArray *arrayIV = kiCarouselIV;
+//    [iconIV setImageWithURL:nil placeholderImage:[UIImage imageNamed:@"bg-OW"]];
+    iconIV.image = [UIImage imageNamed:[NSString stringWithFormat:@"%@", arrayIV[index]]];
     return view;
 }
 
@@ -65,7 +67,8 @@
 - (void)carouselCurrentItemIndexDidChange:(iCarousel *)carousel{
     _pageControl.currentPage = carousel.currentItemIndex;
     //_titleView.text = [self.recomVM titleIndexForRow:carousel.currentItemIndex];
-    _titleView.text = @"the world need heros!";
+    NSArray *arrayText = kiCarouselText;
+    _titleView.text = arrayText[carousel.currentItemIndex];
 }
 
 #pragma mark - UITableView Delegate

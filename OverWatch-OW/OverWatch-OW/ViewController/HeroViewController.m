@@ -46,6 +46,7 @@
 - (void)collectionView:(UICollectionView *)collectionView didSelectItemAtIndexPath:(NSIndexPath *)indexPath{
 //    [collectionView deselectItemAtIndexPath:indexPath animated:YES];
     //获取英雄名字
+    /* 上架 注释
     NSArray *nameHeroArr = kNameHeroArray;
     NSString *nameHero = [nameHeroArr[indexPath.row] substringFromIndex:3];
     MMSkillsViewController *skillsVC = [[MMSkillsViewController alloc] initWithName:nameHero];
@@ -53,6 +54,7 @@
     UIBarButtonItem *backBtn = [[UIBarButtonItem alloc] initWithTitle:@"返回" style:UIBarButtonItemStylePlain target:nil action:nil];
     self.navigationItem.backBarButtonItem = backBtn;
     [self.navigationController pushViewController:skillsVC animated:YES];
+     */
 }
 
 #pragma mark - LifeCycle 生命周期
